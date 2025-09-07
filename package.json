@@ -1,0 +1,19 @@
+{
+  "name": "angel-oasis",
+  "version": "1.0.0",
+  "description": "Angel Oasis - Descubre Tu Ángel de la Guarda",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -p $PORT",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": ["angel", "oasis", "static", "web"],
+  "author": "Angel Oasis",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
