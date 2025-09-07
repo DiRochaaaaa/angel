@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url('background-image.webp');
+    background-image: url('../images/background-image.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -110,12 +110,44 @@ body {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 45px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 110, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
     text-align: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #006eff, #00d4ff, #006eff);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 110, 255, 0.2);
+    border-color: rgba(0, 110, 255, 0.3);
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: -200% 0;
+    }
+    50% {
+        background-position: 200% 0;
+    }
 }
 
 .card h2 {
@@ -136,6 +168,7 @@ body {
 /* Form Sections */
 .form-section {
     text-align: left;
+    padding: 20px 0;
 }
 
 .form-section h3 {
@@ -144,35 +177,91 @@ body {
     margin-bottom: 25px;
     color: #2c3e50;
     text-align: center;
+    position: relative;
+}
+
+.form-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #00d4ff, #006eff);
+    border-radius: 2px;
 }
 
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    position: relative;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #555;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .input-group input,
 .input-group select {
     width: 100%;
-    padding: 15px;
+    padding: 18px 20px;
     border: 2px solid #e1e8ed;
-    border-radius: 10px;
-    font-size: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    background: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .input-group input:focus,
 .input-group select:focus {
     outline: none;
     border-color: #006eff;
-    box-shadow: 0 0 0 3px rgba(0, 110, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 110, 255, 0.15), 0 4px 20px rgba(0, 110, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.input-group input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.input-group input:invalid {
+    border-color: #e74c3c;
+}
+
+.input-group input:valid {
+    border-color: #27ae60;
+}
+
+/* Validation feedback */
+.input-group .error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-group .success-message {
+    color: #27ae60;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-group.error .error-message {
+    display: block;
+}
+
+.input-group.success .success-message {
+    display: block;
 }
 
 /* Gender Options */
@@ -181,10 +270,13 @@ body {
     gap: 20px;
     justify-content: center;
     margin-bottom: 30px;
+    padding: 10px 0;
 }
 
 .gender-option {
     cursor: pointer;
+    flex: 1;
+    max-width: 200px;
 }
 
 .gender-option input {
@@ -193,20 +285,50 @@ body {
 
 .gender-btn {
     display: block;
-    padding: 15px 30px;
-    background-color: #f8f9fa;
-    border: 2px solid #e1e8ed;
-    border-radius: 10px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 3px solid #e1e8ed;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
-    min-width: 120px;
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gender-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #006eff, #00d4ff);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.gender-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 110, 255, 0.2);
+    border-color: #006eff;
 }
 
 .gender-option input:checked + .gender-btn {
     background: linear-gradient(45deg, #006eff, #00d4ff);
     color: white;
     border-color: #006eff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 110, 255, 0.4);
+}
+
+.gender-option input:checked + .gender-btn::before {
+    left: 0;
 }
 
 /* Date Inputs */
@@ -220,22 +342,66 @@ body {
 /* Continue Button */
 .continue-btn {
     width: 100%;
-    padding: 18px;
-    background: linear-gradient(45deg, #e91e63, #f06292);
+    padding: 20px;
+    background: linear-gradient(135deg, #006eff 0%, #00d4ff 50%, #006eff 100%);
+    background-size: 200% 200%;
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 30px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 25px rgba(0, 110, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.continue-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
 }
 
 .continue-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 110, 255, 0.5);
+    background-position: 100% 0;
+    animation: pulse 2s infinite;
+}
+
+.continue-btn:hover::before {
+    left: 100%;
+}
+
+.continue-btn:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.continue-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    animation: none;
+    background: #ccc;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 12px 35px rgba(0, 110, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 12px 35px rgba(0, 110, 255, 0.8);
+    }
 }
 
 /* Loading Screen */
@@ -474,10 +640,13 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 15px;
+        max-width: 95%;
     }
     
     .card {
-        padding: 25px;
+        padding: 35px 25px;
+        border-radius: 20px;
+        margin-bottom: 30px;
     }
     
     .card h2 {
@@ -496,6 +665,38 @@ body {
     .gender-options {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
+        padding: 15px 0;
+    }
+    
+    .gender-option {
+        max-width: 100%;
+    }
+    
+    .gender-btn {
+        min-width: auto;
+        padding: 18px 25px;
+        font-size: 1rem;
+    }
+    
+    .progress-bar {
+        height: 8px;
+    }
+    
+    .input-group input,
+    .input-group select {
+        padding: 16px 18px;
+        font-size: 1rem;
+    }
+    
+    .continue-btn {
+        padding: 18px;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    
+    .form-section h3 {
+        font-size: 1.3rem;
     }
     
     .offer-steps {
@@ -505,12 +706,18 @@ body {
 }
 
 @media (max-width: 480px) {
-    .card h2 {
-        font-size: 1.2rem;
+    .container {
+        padding: 10px;
     }
     
     .card {
-        padding: 20px;
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+    
+    .card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
     }
     
     .logo img {
@@ -525,5 +732,47 @@ body {
         width: 35px;
         height: 35px;
         font-size: 0.9rem;
+    }
+    
+    .form-section {
+        padding: 15px 0;
+    }
+    
+    .form-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .input-group {
+        margin-bottom: 20px;
+    }
+    
+    .input-group label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .input-group input,
+    .input-group select {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+    
+    .continue-btn {
+        font-size: 1rem;
+        padding: 16px;
+        letter-spacing: 1px;
+        margin-top: 25px;
+    }
+    
+    .gender-btn {
+        padding: 16px 20px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .progress-bar {
+        height: 6px;
     }
 }

@@ -25,7 +25,7 @@
     <!-- CSS Crítico Inline para evitar render blocking -->
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Poppins',Arial,sans-serif;background-image:url('background-image.webp');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;color:#333;font-display:swap;background-color:#667eea}
+        body{font-family:'Poppins',Arial,sans-serif;background-image:url('assets/images/background-image.webp');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;color:#333;font-display:swap;background-color:#667eea}
         .container{max-width:1200px;margin:0 auto;padding:20px}
         .header{text-align:center;margin-bottom:30px}
         .logo{display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(255,255,255,1);padding:20px 40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);backdrop-filter:blur(10px);max-width:fit-content;margin:0 auto 20px auto}
@@ -51,14 +51,14 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
     
     <!-- CSS não-crítico carregado async com fallback -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
+    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
     
     <!-- Preload de recursos críticos -->
-    <link rel="preload" href="Angel-Oasis-logo-300x79.webp" as="image">
-    <link rel="preload" href="background-image.webp" as="image">
-    <link rel="preload" href="script.js" as="script">
-    <link rel="preload" href="config.js" as="script">
+    <link rel="preload" href="assets/images/Angel-Oasis-logo-300x79.webp" as="image">
+    <link rel="preload" href="assets/images/background-image.webp" as="image">
+    <link rel="preload" href="assets/js/script.js" as="script">
+    <link rel="preload" href="assets/js/config.js" as="script">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -174,7 +174,7 @@
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <img src="Angel-Oasis-logo-300x79.webp" alt="Angel Oasis" width="300" height="79">
+                <img src="assets/images/Angel-Oasis-logo-300x79.webp" alt="Angel Oasis" width="300" height="79">
             </div>
         </header>
 
@@ -322,7 +322,7 @@
                             
                             <div class="angel-details">
                                 <h4>Tu Arcángel de la Guarda es <span id="angelNameDetails">Sariel</span></h4>
-                                <img src="uriel.jpg" alt="Arcángel Sariel" class="angel-image" width="150" height="150" loading="lazy" id="angelImage">
+                                <img src="assets/images/uriel.jpg" alt="Arcángel Sariel" class="angel-image" width="150" height="150" loading="lazy" id="angelImage">
                                 <p id="angelDescription">El nombre de Sariel se traduce como "Mandato de Dios". Sariel proporciona guía divina y dirección, ayudándote a seguir tu camino espiritual con confianza.</p>
                                 <p>Todo lo que necesitas es... el "Decodificador Divino"...</p>
                             </div>
@@ -383,7 +383,7 @@
     </script>
 
     <!-- Scripts carregados com defer para não bloquear -->
-    <script defer src="config.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/script.js"></script>
 </body>
 </html>
