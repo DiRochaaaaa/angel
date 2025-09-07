@@ -321,6 +321,11 @@ function showOffer() {
     // Configurar botão do carrinho com parâmetros
     setupCartButton();
     
+    // Inicializar o player de vídeo apenas quando a página aparecer
+    if (typeof initializePlayer === 'function') {
+        initializePlayer();
+    }
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
     // Centralizar e destacar o vídeo após um pequeno delay

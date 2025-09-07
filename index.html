@@ -14,9 +14,7 @@
     
     <!-- VTurb -->
     <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-    <link rel="preload" href="https://scripts.converteai.net/28d41dbd-cd23-4eac-a930-66e1aca584eb/players/68bcdb7af27eb4c9e8d2c0b8/v4/player.js" as="script">
-    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/28d41dbd-cd23-4eac-a930-66e1aca584eb/68bcdae7575dfb94b012cf28/main.m3u8" as="fetch">
+    <!-- Preloads do vídeo removidos - carregamento sob demanda -->
     <link rel="dns-prefetch" href="https://cdn.converteai.net">
     <link rel="dns-prefetch" href="https://scripts.converteai.net">
     <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -344,8 +342,8 @@
                         <div class="offer-details">
                             <h3>Querido/a <span id="userNameDear"></span>, Estás A Punto De Descubrir El Secreto Definitivo Para Conectarte Con El Arcángel <span id="angelNameOfferDetails">Sariel</span>... (Comenzando En Las Próximas 24 Horas...)</h3>
                             
-                            <div class="video-placeholder">
-                                <vturb-smartplayer id="vid-68bcdb7af27eb4c9e8d2c0b8" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/28d41dbd-cd23-4eac-a930-66e1aca584eb/players/68bcdb7af27eb4c9e8d2c0b8/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+                            <div class="video-placeholder" id="videoContainer">
+                                <!-- Vídeo será carregado dinamicamente quando a página aparecer -->
                             </div>
                             
                             <div class="offer-box esconder">
@@ -373,13 +371,33 @@
     </style>
 
     <script>
+        // Script do player será carregado dinamicamente quando necessário
         var delaySeconds = 1049;
-        var player = document.querySelector("vturb-smartplayer");
-        player.addEventListener("player:ready", function() {
-            player.displayHiddenElements(delaySeconds, [".esconder"], {
-            persist: true
-            });
-        });
+        var player = null;
+        
+        function initializePlayer() {
+            if (!player) {
+                const videoContainer = document.getElementById('videoContainer');
+                videoContainer.innerHTML = '<vturb-smartplayer id="vid-68bcdb7af27eb4c9e8d2c0b8" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>';
+                
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/28d41dbd-cd23-4eac-a930-66e1aca584eb/players/68bcdb7af27eb4c9e8d2c0b8/v4/player.js";
+                s.async = true;
+                document.head.appendChild(s);
+                
+                // Aguardar o player carregar
+                setTimeout(() => {
+                    player = document.querySelector("vturb-smartplayer");
+                    if (player) {
+                        player.addEventListener("player:ready", function() {
+                            player.displayHiddenElements(delaySeconds, [".esconder"], {
+                                persist: true
+                            });
+                        });
+                    }
+                }, 1000);
+            }
+        }
     </script>
 
     <!-- Scripts carregados com defer para não bloquear -->
