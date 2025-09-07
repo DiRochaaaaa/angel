@@ -1,8 +1,7 @@
 [variables]
 NODE_ENV = "production"
 
-[providers]
-node = "18"
+providers = ["node"]
 
 [phases.setup]
 nixPkgs = ["nodejs-18_x", "npm"]
@@ -14,8 +13,7 @@ cmds = ["npm ci"]
 cmds = ["echo 'No build step required for static site'"]
 
 [start]
-cmd = "npx serve -s . -p $PORT"
+cmd = "serve -s . -p $PORT"
 
 [staticAssets]
-# Serve static files directly
 "/" = "./"
