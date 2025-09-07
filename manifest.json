@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "Angel-Oasis-logo-300x79.webp",
+      "src": "assets/images/Angel-Oasis-logo-300x79.webp",
       "sizes": "300x79",
       "type": "image/webp",
       "purpose": "any maskable"

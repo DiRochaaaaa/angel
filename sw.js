@@ -8,8 +8,8 @@ const urlsToCache = [
   '/styles.css',
   '/script.js',
   '/config.js',
-  '/Angel-Oasis-logo-300x79.webp',
-  '/background-image.webp',
+  '/assets/images/Angel-Oasis-logo-300x79.webp',
+    '/assets/images/background-image.webp',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'
 ];
 
