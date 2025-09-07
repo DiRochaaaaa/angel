@@ -5,7 +5,7 @@ const CACHE_NAME = 'angel-oasis-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.min.css',
+  '/styles.css',
   '/script.js',
   '/config.js',
   '/Angel-Oasis-logo-300x79.webp',

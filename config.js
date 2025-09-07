@@ -68,7 +68,7 @@ const siteConfig = {
             name: "Raguel",
             meaning: "Justicia de Dios",
             description: 'Justicia de Dios Raguel es el guardián del equilibrio. Él aparece cuando hay caos o injusticia, ayudándote a restaurar la armonía en tus relaciones y decisiones. Si sientes que algo en tu vida está "fuera de lugar", es hora de invocar su guía. 👉 Haz clic para conectar con Raguel y encontrar paz y equidad.',
-            image: "raguel-angel.svg"
+            image: "raguel.jpg"
         },
         3: { // Marzo
             name: "Raziel",

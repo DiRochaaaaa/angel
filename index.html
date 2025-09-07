@@ -25,7 +25,7 @@
     <!-- CSS Crítico Inline para evitar render blocking -->
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Poppins',sans-serif;background-image:url('background-image.webp');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;color:#333;font-display:swap}
+        body{font-family:'Poppins',Arial,sans-serif;background-image:url('background-image.webp');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;color:#333;font-display:swap;background-color:#667eea}
         .container{max-width:1200px;margin:0 auto;padding:20px}
         .header{text-align:center;margin-bottom:30px}
         .logo{display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(255,255,255,1);padding:20px 40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);backdrop-filter:blur(10px);max-width:fit-content;margin:0 auto 20px auto}
@@ -37,15 +37,22 @@
         .step-content{display:none;width:100%;max-width:600px}
         .step-content.active{display:block}
         .card{background:rgba(255,255,255,0.95);border-radius:20px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3);backdrop-filter:blur(10px);text-align:center;contain:layout style paint}
+        .btn{background:linear-gradient(45deg,#00d4ff,#006eff);color:white;border:none;padding:15px 30px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.3s ease;text-decoration:none;display:inline-block}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,110,255,0.3)}
+        input,select{width:100%;padding:15px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px;margin-bottom:15px;transition:border-color 0.3s ease}
+        input:focus,select:focus{outline:none;border-color:#006eff}
+        .gender-options{display:flex;gap:15px;justify-content:center;margin:20px 0}
+        .gender-btn{flex:1;padding:20px;border:2px solid #e0e0e0;border-radius:15px;background:white;cursor:pointer;transition:all 0.3s ease;text-align:center}
+        .gender-btn.selected{border-color:#006eff;background:linear-gradient(45deg,#00d4ff,#006eff);color:white}
     </style>
     
-    <!-- Preload crítico -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Preload crítico com fallback -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.onerror=null;document.body.style.fontFamily='Arial,sans-serif'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
     
-    <!-- CSS não-crítico carregado async -->
-    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
+    <!-- CSS não-crítico carregado async com fallback -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
     
     <!-- Preload de recursos críticos -->
     <link rel="preload" href="Angel-Oasis-logo-300x79.webp" as="image">
