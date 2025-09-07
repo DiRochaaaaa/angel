@@ -1,0 +1,53 @@
+# Arquivos grandes de mídia (>100MB)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+vsl oasis.mp4
+
+# Arquivos de imagem grandes
+*.psd
+*.ai
+*.eps
+*.tiff
+*.raw
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Dependências
+node_modules/
+vendor/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-*
+
+# Builds
+dist/
+build/
+*.min.js
+*.min.css
+
+# Configurações locais
+.env
+.env.local
+config.local.js

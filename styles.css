@@ -1,0 +1,529 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('background-image.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 1);
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: fit-content;
+    margin: 0 auto 20px auto;
+}
+offer-box
+.logo img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-bottom: 40px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #006eff);
+    border-radius: 4px;
+    width: 25%;
+    transition: width 0.5s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: linear-gradient(45deg, #00d4ff, #006eff);
+    transform: scale(1.1);
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: center;
+}
+
+.step-content {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+}
+
+.step-content.active {
+    display: block;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+.card > p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Form Sections */
+.form-section {
+    text-align: left;
+}
+
+.form-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #006eff;
+    box-shadow: 0 0 0 3px rgba(0, 110, 255, 0.1);
+}
+
+/* Gender Options */
+.gender-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.gender-option {
+    cursor: pointer;
+}
+
+.gender-option input {
+    display: none;
+}
+
+.gender-btn {
+    display: block;
+    padding: 15px 30px;
+    background-color: #f8f9fa;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 120px;
+}
+
+.gender-option input:checked + .gender-btn {
+    background: linear-gradient(45deg, #006eff, #00d4ff);
+    color: white;
+    border-color: #006eff;
+}
+
+/* Date Inputs */
+.date-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Continue Button */
+.continue-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #e91e63, #f06292);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+}
+
+/* Loading Screen */
+.loading-content {
+    text-align: center;
+}
+
+.checkmark {
+    font-size: 4rem;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #006eff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 30px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Results Screen */
+.result-content {
+    text-align: left;
+}
+
+.angel-info h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.angel-info p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.angel-details {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.angel-details h4 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Angel Image - Fixed dimensions to prevent layout shift */
+.angel-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Garantir que sempre reserve o espaço */
+    min-width: 150px;
+    min-height: 150px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.discover-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #ff9800, #ffc107);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 25px;
+}
+
+.discover-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+}
+
+/* Offer Screen */
+.offer-content {
+    text-align: center;
+}
+
+.offer-steps {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.offer-step h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.offer-details h3 {
+    color: #2c3e50;
+    margin: 30px 0;
+    line-height: 1.4;
+}
+
+.video-placeholder {
+    position: relative;
+    margin: 30px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+.video-placeholder.highlighted {
+    animation: highlightVideo 1.5s ease-in-out;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+@keyframes highlightVideo {
+    0% { 
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 15px 35px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05);
+    }
+    100% { 
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 15px 35px rgba(0, 0, 0, 0.2);
+        transform: scale(1.02);
+    }
+}
+
+/* Video thumbnail - Fixed dimensions to prevent layout shift */
+.video-thumb {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* Garantir dimensões fixas */
+    min-height: 250px;
+    aspect-ratio: 16 / 9;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #006eff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.offer-box {
+    background: linear-gradient(135deg, #fb9393 0%, #f55757 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px 0;
+}
+
+.offer-box h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.offer-box p {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.price {
+    margin: 20px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.new-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffeb3b;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #4caf50, #629429);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .card {
+        padding: 25px;
+    }
+    
+    .card h2 {
+        font-size: 1.4rem;
+    }
+    
+    .logo img {
+        max-width: 250px;
+    }
+    
+    .date-inputs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .gender-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .offer-steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card h2 {
+        font-size: 1.2rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .logo img {
+        max-width: 200px;
+    }
+    
+    .progress-steps {
+        max-width: 250px;
+    }
+    
+    .step {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
