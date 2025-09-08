@@ -583,57 +583,132 @@ body {
 }
 
 .offer-box {
-    background: linear-gradient(135deg, #fb9393 0%, #f55757 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     color: white;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 35px;
+    border-radius: 25px;
     margin: 30px 0;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.offer-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
 }
 
 .offer-box h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.offer-box h4::after {
+    content: '✨';
+    margin-left: 10px;
+    font-size: 1.2rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
 }
 
 .offer-box p {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-style: italic;
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
 }
 
 .price {
-    margin: 20px 0;
+    margin: 25px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .old-price {
     text-decoration: line-through;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
     margin-right: 15px;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .new-price {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: #ffeb3b;
+    text-shadow: 0 2px 8px rgba(255, 235, 59, 0.4);
+    display: block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .add-to-cart-btn {
     width: 100%;
-    padding: 18px;
-    background: linear-gradient(45deg, #4caf50, #629429);
+    padding: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff9ff3);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+    overflow: hidden;
+}
+
+.add-to-cart-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
 .add-to-cart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+}
+
+.add-to-cart-btn:hover::before {
+    left: 100%;
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* Responsive Design */
