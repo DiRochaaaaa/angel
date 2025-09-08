@@ -11,7 +11,7 @@ let userData = {
 };
 
 // Configuração da URL de checkout - ALTERE AQUI SUA URL REAL
-const CHECKOUT_URL = 'https://example.com/checkout';
+const CHECKOUT_URL = 'https://pay.hotmart.com/P101801752S?off=d6tzczic';
 
 // Initialize the page with performance optimizations
 document.addEventListener('DOMContentLoaded', function() {
@@ -365,7 +365,7 @@ function setupCartButton() {
             // Fallback: construir URL manualmente
             const url = new URL(CHECKOUT_URL);
             
-            // Adicionar dados do usuário
+            // Adicionar dados do usuário para Hotmart
             if (userData && userData.firstName) {
                 url.searchParams.set('name', userData.firstName);
             }

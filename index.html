@@ -129,7 +129,7 @@
             window.redirectWithParams = function(baseUrl) {
                 const url = new URL(baseUrl);
                 
-                // Adicionar dados do usuário coletados
+                // Adicionar dados do usuário coletados para Hotmart
                 if (userData && userData.firstName) {
                     url.searchParams.set('name', userData.firstName);
                 }
@@ -158,8 +158,8 @@
                 const addToCartBtn = document.getElementById('addToCartBtn');
                 if (addToCartBtn) {
                     addToCartBtn.addEventListener('click', function() {
-                        // Substitua pela sua URL de checkout real
-                        redirectWithParams('https://example.com/checkout');
+                        // URL de checkout da Hotmart
+                        redirectWithParams('https://pay.hotmart.com/P101801752S?off=d6tzczic');
                     });
                 }
             }, 1000);
