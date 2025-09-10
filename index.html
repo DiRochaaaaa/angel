@@ -200,6 +200,7 @@
                             <input type="text" id="firstName" name="firstName" placeholder="Ejemplo: María" required>
                         </div>
                         <button class="continue-btn" onclick="nextStep(); if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }">Continuar →</button>
+                        <p class="download-instruction">Haz clic para continuar con el siguiente paso</p>
                     </div>
                 </div>
             </div>
@@ -269,6 +270,7 @@
                             </div>
                         </div>
                         <button class="continue-btn" onclick="generateReading(); if(typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }">¡Sí, Muestra Mi Resultado! →</button>
+                        <p class="download-instruction">Haz clic para generar tu lectura personalizada</p>
                     </div>
                 </div>
             </div>
@@ -305,6 +307,7 @@
                             </div>
                             
                             <button class="discover-btn" onclick="showOffer(); if(typeof fbq !== 'undefined') { fbq('track', 'ViewContent'); fbq('track', 'VideoView'); }" id="discoverBtn">Haz Clic Aquí Para Descubrir Cómo Conectarte Con El Arcángel Sariel</button>
+                            <p class="download-instruction">Haz clic para acceder a tu guía espiritual completa</p>
                         </div>
                     </div>
                 </div>
@@ -328,6 +331,7 @@
                             <!-- Container do Botão sobre a VSL -->
                             <div class="vsl-btn-container esconder">
                                 <button class="vsl-overlay-btn" onclick="document.getElementById('offer-box').scrollIntoView({behavior: 'smooth'});">Añadir al Carrito</button>
+                                
                             </div>
                             
                             <div class="offer-box esconder" id="offer-box">
@@ -341,6 +345,9 @@
                                     <span class="cart-icon">🛒</span>
                                     <span class="cart-text">Agregar Al Carrito</span>
                                 </button>
+                                
+                                <!-- Texto de instrução para download -->
+                                <p class="download-instruction">Haz clic en el botón para descargar tu reporte instantáneamente</p>
                             </div>
                             
                             <!-- Container de Provas Sociais -->
@@ -451,6 +458,7 @@
                                       <span class="offer-icon">🎁</span>
                                       <span class="offer-text">Recibir guía espiritual ya</span>
                                   </button>
+                                  <p class="download-instruction">Haz clic para obtener tu reporte premium ahora</p>
                                  </div>
                             </div>
                         </div>
