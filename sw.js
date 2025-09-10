@@ -1,15 +1,17 @@
 // Service Worker para Angel Oasis
 // Versão 1.0 - Otimizado para velocidade
 
-const CACHE_NAME = 'angel-oasis-v1';
+const CACHE_NAME = 'angel-oasis-v2';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/config.js',
+  '/assets/css/styles.css',
+  '/assets/js/script.js',
+  '/assets/js/config.js',
   '/assets/images/Angel-Oasis-logo-300x79.webp',
-    '/assets/images/background-image.webp',
+  '/assets/images/background-image.webp',
+  '/assets/images/cropped-Angel-Oasis-wing-32x32.png',
+  '/manifest.json',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'
 ];
 

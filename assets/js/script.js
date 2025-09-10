@@ -138,7 +138,13 @@ function validateCurrentStep() {
         case 1:
             const firstName = document.getElementById('firstName').value.trim();
             if (!firstName) {
-                alert('Por favor, ingresa tu nombre.');
+                showNotification('Por favor, ingresa tu nombre.', 'warning');
+                const nameField = document.getElementById('firstName');
+                if (nameField) {
+                    nameField.focus();
+                    nameField.classList.add('error-shake');
+                    setTimeout(() => nameField.classList.remove('error-shake'), 600);
+                }
                 return false;
             }
             userData.firstName = firstName;
@@ -153,7 +159,12 @@ function validateCurrentStep() {
         case 2:
             const gender = document.querySelector('input[name="gender"]:checked');
             if (!gender) {
-                alert('Por favor, selecciona tu género.');
+                showNotification('Por favor, selecciona tu género.', 'warning');
+                const genderSection = document.querySelector('.gender-options');
+                if (genderSection) {
+                    genderSection.classList.add('error-shake');
+                    setTimeout(() => genderSection.classList.remove('error-shake'), 600);
+                }
                 return false;
             }
             userData.gender = gender.value;
@@ -165,7 +176,12 @@ function validateCurrentStep() {
             const year = document.getElementById('year').value;
             
             if (!month || !day || !year) {
-                alert('Por favor, completa tu fecha de nacimiento.');
+                showNotification('Por favor, completa tu fecha de nacimiento.', 'warning');
+                const dateSection = document.querySelector('.date-inputs');
+                if (dateSection) {
+                    dateSection.classList.add('error-shake');
+                    setTimeout(() => dateSection.classList.remove('error-shake'), 600);
+                }
                 return false;
             }
             
@@ -306,6 +322,9 @@ function updateAngelInfo() {
 function showOffer() {
     document.getElementById('results').classList.remove('active');
     document.getElementById('offer').classList.add('active');
+    
+    // Marcar no localStorage que o usuário chegou na VSL
+    localStorage.setItem('angelOasisVSLReached', 'true');
     
     // Evento do pixel para visualização da VSL
     if (typeof fbq !== 'undefined') {
@@ -487,6 +506,45 @@ function saveProgress() {
 }
 
 function loadProgress() {
+    // Verificar se o usuário já chegou na VSL
+    const vslReached = localStorage.getItem('angelOasisVSLReached');
+    if (vslReached === 'true') {
+        // Se já chegou na VSL, redirecionar diretamente para lá
+        const saved = localStorage.getItem('angelOasisProgress');
+        if (saved) {
+            try {
+                const progress = JSON.parse(saved);
+                userData = { ...userData, ...progress.userData };
+                
+                // Esconder todas as etapas
+                document.querySelectorAll('.step-content').forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                // Mostrar diretamente a VSL
+                document.getElementById('offer').classList.add('active');
+                
+                // Atualizar informações do usuário na VSL
+                updateUserNames();
+                updateAngelInfo();
+                
+                // Configurar botão do carrinho
+                setupCartButton();
+                
+                // Inicializar player se necessário
+                if (typeof initializePlayer === 'function') {
+                    initializePlayer();
+                }
+                
+                return; // Sair da função aqui
+            } catch (error) {
+                console.log('Error al cargar progreso VSL:', error);
+                // Em caso de erro, continuar com o fluxo normal
+            }
+        }
+    }
+    
+    // Fluxo normal se não chegou na VSL ainda
     const saved = localStorage.getItem('angelOasisProgress');
     if (saved) {
         try {
@@ -545,5 +603,54 @@ function loadProgress() {
 // Clear progress (useful for testing or reset)
 function clearProgress() {
     localStorage.removeItem('angelOasisProgress');
+    localStorage.removeItem('angelOasisVSLReached');
     location.reload();
+}
+
+// Clear VSL flag specifically (useful for testing)
+function clearVSLFlag() {
+    localStorage.removeItem('angelOasisVSLReached');
+    console.log('VSL flag cleared - user will go through normal flow on next reload');
+}
+
+// Sistema de notificações elegante
+function showNotification(message, type = 'info') {
+    // Remover notificação existente se houver
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Criar nova notificação
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${getNotificationIcon(type)}</span>
+            <span class="notification-message">${message}</span>
+        </div>
+    `;
+    
+    // Adicionar ao DOM
+    document.body.appendChild(notification);
+    
+    // Animar entrada
+    setTimeout(() => notification.classList.add('show'), 100);
+    
+    // Remover após 4 segundos
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 4000);
+}
+
+// Ícones para diferentes tipos de notificação
+function getNotificationIcon(type) {
+    const icons = {
+        'info': 'ℹ️',
+        'success': '✅',
+        'warning': '⚠️',
+        'error': '❌'
+    };
+    return icons[type] || icons['info'];
 }
