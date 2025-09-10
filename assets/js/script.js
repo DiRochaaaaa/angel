@@ -351,14 +351,7 @@ function setupCartButton() {
     if (addToCartBtn && !addToCartBtn.hasAttribute('data-configured')) {
         addToCartBtn.setAttribute('data-configured', 'true');
         addToCartBtn.addEventListener('click', function() {
-            // Disparar evento de pixel do Facebook
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout');
-                fbq('track', 'Purchase', {
-                    value: 7.00,
-                    currency: 'USD'
-                });
-            }
+            // Eventos de pixel do Facebook removidos
             
             // Se existe a função global, usa ela
             if (window.redirectWithParams) {
