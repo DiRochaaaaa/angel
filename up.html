@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es" class="elFont_ptsans bgCover">
+<head>
+  <!-- URLs de Checkout -->
+  <script>
+    var checkoutUrls = {
+      main: "https://checkout.example",
+      decline: "https://checkout.example/decline",
+    };
+    
+    // URLs de las Imágenes
+    var images = {
+      logo: "hosted-up/images/66/8c17b2a63b49aeb0e59fc1f83ab9ba/Angel-Oasis-logo-min.png",
+      meditation1: "hosted-up/images/40/87ec707148487fbb8013c36ca9b9a4/gettyimages-969917426-612x612.jpg",
+      meditation2: "hosted-up/images/5d/1d35a2cd314af281cf25410a835a9f/gettyimages-1128649006-612x612.jpg",
+      product1: "hosted-up/images/88/1cd044e08f42de8ec278f04ab8f6ba/Collage-Cd-__box--Divine-Evolution-Plan-min3.png",
+      product2: "hosted-up/images/50/24bd2032c211e987cb9f25ffd05fe0/Mockup-min.png",
+      creditCards: "hosted-up/images/images/credit-paypal.png",
+      guarantee: "hosted-up/images/ae/ffa8a01aea11e89895110ab6b1489f/60-day-money-back-guarantee.png",
+      book1: "hosted-up/images/19/397509fc73461d9205b4f50174aa1b/dep-2d-min.jpg",
+      audioProduct: "hosted-up/images/58/7c9cbe6bd6445a86aea972a79f1e8f/Collage-Cd-__box--Divine-Evolution-Plan-min2.png",
+      ebook1: "hosted-up/images/15/9c854b410b4937a6b3ae7700c627d9/Ebook-2D-min.jpg",
+      divineHearing: "hosted-up/images/0d/324705d93e481fac27ea59bc46d2d3/Divine-Hearing-min.jpg",
+      tapping: "hosted-up/images/db/5cb057e6c44304b2da8e23d0ab7d1d/Emotional-Freedom-Tapping-101-Ebook--2D-Design-min.jpg",
+      backgroundImage: "hosted-up/images/74/13f190b7774c50a02e0910404ece7c/about_archangels-bg.jpg"
+    };
+  </script>
+  
+  <script>
+        // Propagar parâmetros da URL para links e formulários
+      window.onload = function() {
+      const currentParams = new URLSearchParams(window.location.search);
+      if (![...currentParams].length) return; // nada que propagar
+
+      function mergeParams(href) {
+        const url = new URL(href, window.location.origin);
+        currentParams.forEach((value, key) => {
+          if (!url.searchParams.has(key)) {
+            url.searchParams.set(key, value);
+          }
+        });
+        return url.toString();
+      }
+
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.href;
+        if (href.startsWith('mailto:') || href.startsWith('#')) return;
+        link.href = mergeParams(href);
+      });
+
+      document.querySelectorAll('form[action]').forEach(form => {
+        const action = form.action;
+        if (action.startsWith('mailto:') || action.startsWith('#')) return;
+        form.action = mergeParams(action);
+      });
+    };
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angel Oasis</title>
+  <meta name="description" content="¿Quién Es Tu Ángel de la Guarda?">
+  <meta property="og:title" content="Angel Oasis">
+  <meta property="og:description" content="¿Quién Es Tu Ángel de la Guarda?">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" media="screen" href="assets-up/lander.css">
+  <link rel="stylesheet" href="assets-up/global.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Oswald:400,700|Droid+Sans:400,700|Roboto:400,700|Lato:400,700|PT+Sans:400,700|Source+Sans+Pro:400,600,700|Noto+Sans:400,700|Arima+Madurai:400,700" rel="stylesheet" type="text/css">
+  <link rel='icon' type='image/png' href='https://angeloasis.com/wp-content/uploads/2019/07/cropped-Angel-Oasis-wing-32x32.png'>
+</head>
+  <body data-affiliate-param="affiliate_id" data-show-progress="true">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none !important">
+    <filter id="grayscale">
+      <fecolormatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"></fecolormatrix>
+    </filter>
+  </svg>
+  <div class="containerWrapper">
+    <meta name="robots" content="noindex, nofollow">
+<textarea id="tracking-body-top" style="display: none !important"></textarea>
+<input type="hidden" id="submit-form-action" value="redirect-url" data-url="#" data-ar-service="" data-ar-list="" data-webhook="">
+<div class="nodoHiddenFormFields hide">
+<input type="hidden" id="elHidden1" class="elInputHidden elInput" name="ad">
+<input type="hidden" id="elHidden2" class="elInputHidden elInput" name="tag">
+<input type="hidden" id="elHidden3" class="elInputHidden elInput" name="">
+<input type="hidden" id="elHidden4" class="elInputHidden elInput" name="">
+<input type="hidden" id="elHidden5" class="elInputHidden elInput" name="">
+</div>
+<div class="nodoCustomHTML hide"></div>
+<div class="modalBackdropWrapper hide"></div>
+<div class="container containerModal midContainer" id="modalPopup">
+<div class="containerInner"></div>
+<div class="closeLPModal"><img src="images-up/closemodal.png" alt=""></div>
+</div>
+<div class="dropZoneForSections hide"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container fullContainer bgCover" id="container-99149">
+<div class="containerInner">
+<div class="row" id="row--91494">
+<div id="col-full-127" class="col-md-12 innerContent">
+<div class="col-inner">
+<div class="elImageWrapper elAlign_center elMargin0" id="tmp_image-95814">
+<img id="logoImg" class="elIMG ximg" alt="" width="" height="75">
+<script>document.getElementById('logoImg').src = images.logo;</script>
+</div>
+<div class="de elHeadlineWrapper ui-droppable radius0 de-editable" id="tmp_headline1-60096" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 15px; outline: none; cursor: pointer; display: none; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" data-htype="content" aria-disabled="false">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0 mfs_24 borderLight border1px borderSolid padding15 radius0" style="text-align: center;font-size: 32px" data-bold="inherit" data-gramm="false" contenteditable="false" data-opacity="1">
+<i class="fa_prepended fa fa-exclamation-triangle" contenteditable="false" class="color-primary"></i><b> IMPORTANTE: </b>Tu pedido aún no está completo...</div>
+</div>
+<div class="de ui-droppable de-editable" id="headline-29954" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="scale" data-delay="500" style='outline: none; cursor: pointer; padding-left: 60px; padding-right: 60px; margin-top: 20px; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline elMargin0 elBGStyle0 lh1 hsSize5 hsTextShadow1 mfs_18" style="text-align: center; color: rgb(255, 255, 255); font-size: 20px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><div><font color="#474747"><b>(NO hagas clic en "Atrás" o "Salir" porque causará errores en tu pedido)</b></font></div></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_headline1-98485" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 40px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0 mfs_20" style="text-align: center; font-size: 24px; color: rgb(45, 45, 45);" data-bold="inherit" data-gramm="false" contenteditable="false"><i style="">“Felicidades por obtener el <b>Informe Premium del Ángel de la Guarda</b>. Antes de que podamos empezar, necesito que <b><u>leas esto cuidadosamente primero...</u>”
+</b></i></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 P0-top P0-bottom P0H noTopMargin shadow0" id="row--54107" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 20px auto 0px; outline: none; color: rgb(158, 0, 59); background-color: rgb(255, 255, 255); width: 80%; max-width: 100%;">
+<div id="col-full-101" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_headline1-56717" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 15px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0 mfs_26" style="text-align: center; font-size: 34px; color: rgb(53, 77, 119);" data-bold="inherit" data-gramm="false" contenteditable="false"><div>"El Secreto DIVINO Que Puede Ayudarte A <b>Activar Tu ADN Índigo Oculto</b> &amp; Acelerar Tu Conexión Con Tu Ángel de la Guarda... <b>¡Sin Esfuerzo Y Casi INSTANTÁNEAMENTE!</b>"<br>
+</div></div>
+</div>
+<div class="de elSeperator elMargin0 ui-droppable de-editable" id="tmp_divider-44025" data-de-type="divider" data-de-editing="false" data-title="Divider" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 30px; outline: none; cursor: pointer;" aria-disabled="false">
+<div class="elDivider elDividerStyle1 padding10-top padding10-bottom elDividerShadow3">
+<div class="elDividerInner" data-align="center" data-height-border="2" style="border-color: rgb(198, 41, 130);"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container fullContainer noTopMargin padding40-top padding40-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 bgCover emptySection" id="section--92713" data-title="Section" data-block-color="0074C7" style="padding-top: 0px; padding-bottom: 0px; outline: none; background-color: rgba(255, 255, 255, 0); margin-top: 0px;" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--86309" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 80%; max-width: 100%; outline: none; background-color: rgb(255, 255, 255);">
+<div id="col-full-132" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-44797" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" class="text-center font-size-23 color-dark" data-bold="inherit" data-gramm="false" contenteditable="false"><b>¿Sabías que en lo profundo de tu ADN hay Energía Índigo esperando ser liberada?</b></div>
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable hiddenElementTools de-editable" id="tmp_image-13750" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 30px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/40/87ec707148487fbb8013c36ca9b9a4/gettyimages-969917426-612x612.jpg" class="elIMG ximg" alt="" height="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-72634" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 20px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" class="text-center font-size-23 color-dark" data-bold="inherit" data-gramm="false" contenteditable="false"><div>
+<b>Y una vez que liberes tus Poderes Índigo, desbloquearás habilidades espirituales ocultas que han sido utilizadas y aprovechadas por antiguos trabajadores de energía como: <i>chamanes, oráculos, psíquicos y más… ? </i> </i></b><br>
+</div></div>
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="img-64892" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 30px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/5d/1d35a2cd314af281cf25410a835a9f/gettyimages-1128649006-612x612.jpg" class="elIMG ximg" alt="" height="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable radius15 de-editable" id="headline-89018" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 40px; outline: none; cursor: pointer; background-color: rgb(198, 41, 130); font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false" data-htype="content">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 denormalnone22 radius15 padding10" style="text-align: left; font-size: 18px; color: rgb(255, 255, 255); background-color: rgb(198, 41, 130);" data-bold="inherit" data-gramm="false" contenteditable="false" data-opacity="1">
+<div>Al activar tu ADN Índigo podrás ver, sentir, y percibir la presencia de los Ángeles al desbloquear el poder de la <b>"Interpretación Vibracional"</b>…
+</div>
+<div><br></div>
+<div>La razón por la que no puedes interactuar o ver Ángeles ahora mismo, es porque los Ángeles vibran en una frecuencia divina, lo que los mantiene invisibles al ojo humano normal.
+</div>
+<div><br></div>
+<div>Cuando actives tu ADN Índigo, desbloquearás el poder de la <b>"Interpretación Vibracional" </b>que te permitirá poder sentir, ver, y percibir la presencia de un Ángel junto con otras entidades que tienen una frecuencia vibracional alta.
+</div>
+<div><br></div>
+<div>Aprovechar tu energía Índigo acelera tus cinco sentidos normales (como gusto, tacto, vista, oído y olfato). Incluyendo otros sentidos que van más allá de tus cinco normales, como la capacidad de predecir el futuro, conciencia psíquica, y visión acelerada: <b>que te permite ver energía y seres que vibran en una frecuencia diferente.</b>
+</div>
+</div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-55537" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 20px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" class="text-center font-size-23 color-dark" data-bold="inherit" data-gramm="false" contenteditable="false"><b>Una vez que actives tu ADN Índigo, también podrás:
+</b></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--30407" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 80%; max-width: 100%; background-color: rgb(255, 255, 255);">
+<div id="col-left-113" class="col-md-6 innerContent col_left ui-resizable" data-col="left" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elBullet elMargin0 ui-droppable de-editable" id="tmp_list-84652" data-de-type="list" data-de-editing="false" data-title="icon bullet list" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<ul class="ne elBulletList elBulletListNew elBulletList2 listBorder0" data-bold="inherit" data-gramm="false" contenteditable="false" style="color: rgb(45, 45, 45);">
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i>Descubrir habilidades espirituales no aprovechadas…
+</li>
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i>Sentir la presencia de tus Ángeles guardianes y hablar con tu ángel con más claridad…</li>
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i>Recibir señales específicas y respuestas…</li>
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i>​Recibir más orientación sobre cualquier obstáculo o desafío que puedas enfrentar…<br>
+</li>
+</ul>
+</div></div>
+</div>
+<div id="col-right-155" class="col-md-6 innerContent col_right ui-resizable" data-col="right" data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elBullet elMargin0 ui-droppable de-editable" id="list-61965" data-de-type="list" data-de-editing="false" data-title="icon bullet list" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<ul class="ne elBulletList elBulletListNew elBulletList2 listBorder0" data-bold="inherit" data-gramm="false" contenteditable="false" style="color: rgb(45, 45, 45);">
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i><b>​</b>Desarrollar tu conciencia psíquica…
+</li>
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i>Recibir mensajes únicos de los ángeles a través de sueños…
+</li>
+<li style="font-size: 18px;">
+<i contenteditable="false" class="fa fa-fw fa-check" class="color-primary"></i>Y mucho, mucho más…
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--46162" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 80%; max-width: 100%; outline: none; background-color: rgb(255, 255, 255);">
+<div id="col-full-183" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-57377" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 text-center font-size-23 color-dark" data-bold="inherit" data-gramm="false" contenteditable="false"><b>Activar tu ADN Índigo es el camino más rápido para obtener más de tu Ángel de la Guarda…
+</b></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable radius15 de-editable" id="headline-43371" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 20px; outline: none; cursor: pointer; background-color: rgb(255, 177, 0); font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 padding10 radius15 text-left font-size-18 color-dark bg-accent" data-bold="inherit" data-gramm="false" contenteditable="false"><div><i>Me di cuenta de que solo un puñado de personas en este mundo tienen el don suficiente para ver y sentir la presencia de un ángel, y pueden comenzar casi inmediatamente a comunicarse con los Ángeles. <b>Así que después de mucha investigación, descubrí una forma de que las personas pudieran comenzar a desarrollar sus habilidades espirituales para poder comunicarse con los ángeles en un nivel mucho más claro y poderoso.
+</b>Así que estoy presentando...</i></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container fullContainer noTopMargin padding40-top padding40-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 emptySection bgCover" id="section--63408" data-title="Section" data-block-color="0074C7" style="padding-top: 0px; padding-bottom: 0px; outline: none; background-color: rgba(255, 255, 255, 0);" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin cfRowAlignCenter" id="row--45533" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding: 0px 0px 40px; margin: 0px auto; background-color: rgb(255, 255, 255); outline: none; width: 80%; max-width: 100%;">
+<div id="col-full-144" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_headline1-11891" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 30px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 38px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#2d2d2d"><b>El Plan de Evolución Divina</b></font></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-43735" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 30px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 28px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><div>La Clave Para Aprovechar Tu ADN Índigo Oculto y Despertar Tus Habilidades Espirituales.
+</div></div>
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-96259" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 30px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/88/1cd044e08f42de8ec278f04ab8f6ba/Collage-Cd-__box--Divine-Evolution-Plan-min3.png" class="elIMG ximg" alt="" height="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_paragraph-52601" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" style="text-align: center; font-size: 18px; color: rgb(45, 45, 45);" contenteditable="false" data-gramm="false" spellcheck="false"><div>
+<b>El "Plan de Evolución Divina" te mostrará qué obstáculos están bloqueando tu descubrimiento de tu ADN Índigo espiritual.</b> Y una vez que estos obstáculos sean removidos, podrás usar y descubrir muchas de tus habilidades espirituales naturales que han sido suprimidas. Y rápidamente comenzar a conectarte con tu Ángel de la Guarda.
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--43947" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 0px; padding-bottom: 0px; margin: 0px; outline: none;display: none !important;">
+<div id="col-full-182" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-85644" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/50/24bd2032c211e987cb9f25ffd05fe0/Mockup-min.png" class="elIMG ximg" alt="" width="350">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_paragraph-42341" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" class="text-center" data-gramm="false" contenteditable="false">
+<b>Obtén <strike>$247.95</strike> DE DESCUENTO </b>Descuento<b> </b>And Get "7 Day Prosperity Miracle" Solo Hoy For $97.00</div>
+</div>
+<div class="de elBTN elAlign_center elMargin0 ui-droppable de-editable" id="tmp_button-23048" data-de-type="button" data-de-editing="false" data-title="button" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 10px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" data-element-theme="customized" aria-disabled="false">
+<a href="dep-67.html#" class="elButton elButtonSize1 elButtonColor1 elButtonRounded elButtonPadding2 elBtnVP_10 elButtonCorner3 elButtonFluid elBtnHP_25 elBTN_b_1_3 elButtonShadowN1 elButtonTxtColor2 elBTNone elButtonBlock" style="color: rgb(255, 255, 255); background: rgb(158, 0, 59); font-size: 28px;" rel="noopener noreferrer">
+<span class="elButtonMain">¡Sí! Agregar a Mi Pedido<i class="fa_appended fa fa-arrow-circle-o-right"></i></span>
+<span class="elButtonSub"></span>
+</a>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-19642" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0 text-center font-size-14" data-bold="inherit" data-gramm="false" contenteditable="false">(El curso se agregará automáticamente a tu pedido)</div>
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-46952" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 10px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/images/credit-paypal.png" class="elIMG ximg" alt="" height="25">
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-19180" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false"> 
+<img src="hosted-up/images/ae/ffa8a01aea11e89895110ab6b1489f/60-day-money-back-guarantee.png" class="elIMG ximg" alt="" width="100">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-54724" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" class="text-center font-size-14" data-gramm="false" contenteditable="false"> Una vez más, tu compra está protegida por nuestra Garantía de Devolución de Dinero de 60 Días</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--40681" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 0px; padding-bottom: 20px; margin: 20px auto 0px; width: 30%; max-width: 100%; outline: none;display: none !important;">
+<div id="col-full-171" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elHeadlineWrapper radius10 ui-droppable de-editable" id="tmp_paragraph-98410" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 10px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0 borderLight radius10 padding5" data-bold="inherit" style="text-align: center; border-color: rgb(217, 217, 217); background-color: rgb(217, 217, 217); color: rgb(136, 136, 136); font-size: 12px;" data-gramm="false" contenteditable="false"><b>No gracias, no quiero las Bendiciones de Prosperidad del Arcángel Raziel...</b></div>
+</div></div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin cfRowAlignCenter" id="row--45533-163" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone" style="padding: 0px 0px 40px; margin: 0px auto; background-color: rgba(255, 255, 255, 0); outline: none; width: 80%; max-width: 100%;">
+<div id="col-full-144-108" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_headline1-11891-135" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 45px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 38px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#2d2d2d"><b>Esto Es Lo Que Obtienes</b></font></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer border1px noBorder" id="section--39377" data-title="Section" data-block-color="0074C7" style="padding-top: 20px; padding-bottom: 20px; outline: none; border-color: rgb(45, 45, 45); background-color: rgba(136, 136, 136, 0.25);" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin noBorder" id="row--94051" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 100%; max-width: 100%; outline: none; background-color: rgba(255, 255, 255, 0);">
+<div id="col-full-181" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-98143" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 28px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><b>
+Plan de Evolución Divino</b></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-76032" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 21px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><div><b>La Clave para Aprovechar tu ADN Índigo Oculto y Despertar tus Habilidades Espirituales</b></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--33558" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row" style="padding-top: 0px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 100%; max-width: 100%;" col-array="4,8">
+<div id="col-left-173" class="innerContent col_left ui-resizable col-md-4" data-col="left" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-63554" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/19/397509fc73461d9205b4f50174aa1b/dep-2d-min.jpg" class="elIMG ximg" alt="" width="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-12919" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 16px;" data-bold="inherit" data-gramm="false" contenteditable="false"><b>(Valor: $99.95)</b></div>
+</div>
+</div>
+</div>
+<div id="col-right-110" class="innerContent col_right ui-resizable col-md-8" data-col="right" data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-99968" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: left; font-size: 16px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false">
+<div>Descubrirás exactamente lo que necesitas hacer para desarrollar tus sentidos y <b>comenzar a percibir, sentir, o incluso ver Ángeles y otras entidades espirituales...
+</b>
+</div>
+<div><br></div>
+<div>Podrás explorar una lista de habilidades especiales que podrás activar una vez que comiences a aprovechar tus <b>poderes Índigo</b> (Mira la sección “Habilidades Antiguas y Ejercicios” sección)…
+</div>
+<div><br></div>
+<div>Descubrirás los secretos de la <b>ley de atracción y manifestación</b>, y acelerarás tus habilidades de manifestación a un nivel avanzado…
+</div>
+<div><br></div>
+<div>Podrás recibir respuestas y conocimiento que podrían llevar a nuevas invenciones, abundancia financiera, y muchos otros deseos…
+</div>
+<div><br></div>
+<div>Podrás eliminar los bloqueos para liberar tus habilidades espirituales ocultas <br>
+</div>
+<div><br></div>
+<div>Y mucho, mucho más…
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer" id="section--89664" data-title="Section" data-block-color="0074C7" style="padding-top: 20px; padding-bottom: 20px; outline: none;" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable"><div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--49231-176-139" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone - Clone" style="padding-top: 20px; padding-bottom: 20px; margin: 20px 0px 0px; outline: none;">
+<div id="col-full-187-101-149" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-138-145-108" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 34px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Bono GRATUITO #1</b></font></div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer border1px noBorder" id="section--39377-172" data-title="Section - Clone" data-block-color="0074C7" style="padding-top: 0px; padding-bottom: 0px; outline: none; border-color: rgb(217, 217, 217); margin-top: 0px; background-color: rgb(217, 217, 217);" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin noBorder" id="row--94051-154" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 100%; max-width: 100%; outline: none;">
+<div id="col-full-181-115" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-155" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 28px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Plan de Evolución Divino (Versión Audio)
+</b></font></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--33558-169" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row" style="padding-top: 0px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 100%; max-width: 100%;" col-array="4,8">
+<div id="col-left-173-186" class="innerContent col_left ui-resizable col-md-4" data-col="left" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="img-20431" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/58/7c9cbe6bd6445a86aea972a79f1e8f/Collage-Cd-__box--Divine-Evolution-Plan-min2.png" class="elIMG ximg" alt="" width="">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-58770" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 16px;" data-bold="inherit" data-gramm="false" contenteditable="false"><b>(Valor: $67)</b></div>
+</div>
+</div>
+</div>
+<div id="col-right-110-132" class="innerContent col_right ui-resizable col-md-8" data-col="right" data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-92920-107-152" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: left; font-size: 16px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false">
+<div>Recibirás el programa completo en versión de audio a través de descarga digital para que puedas escuchar este curso mientras estás en el gimnasio, durante tu hora de almuerzo, o antes de ir a dormir sin tener que abrir tu computadora. </div>
+<div><br></div>
+<div>Esto se puede descargar en tu computadora, teléfono o tableta...</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer" id="section--89664-170" data-title="Section - Clone" data-block-color="0074C7" style="padding-top: 20px; padding-bottom: 20px; outline: none;" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable"><div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--49231-176-139-113" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone - Clone" style="padding-top: 20px; padding-bottom: 20px; margin: 20px 0px 0px; outline: none;">
+<div id="col-full-187-101-149-167" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-138-145-108-188" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 34px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Bono GRATUITO #2</b></font></div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer border1px noBorder" id="section--39377-172-124-173" data-title="Section - Clone - Clone - Clone" data-block-color="0074C7" style="padding-top: 0px; padding-bottom: 0px; outline: none; border-color: rgb(45, 45, 45); margin-top: 0px; background-color: rgb(217, 217, 217);" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin noBorder" id="row--94051-154-161-120" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 100%; max-width: 100%; outline: none;">
+<div id="col-full-181-115-189-146" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-166" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 28px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#ffb727"><b>Reiki Angelical Hecho Fácil</b></font></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--33558-169-162-111" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row" style="padding-top: 0px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 100%; max-width: 100%;" col-array="4,8">
+<div id="col-left-173-186-186-140" class="innerContent col_left ui-resizable col-md-4" data-col="left" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-63554-105-130" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/15/9c854b410b4937a6b3ae7700c627d9/Ebook-2D-min.jpg" class="elIMG ximg" alt="" width="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-85406" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 16px;" data-bold="inherit" data-gramm="false" contenteditable="false"><b>(Valor: $39.95)</b></div>
+</div>
+</div>
+</div>
+<div id="col-right-110-132-115-185" class="innerContent col_right ui-resizable col-md-8" data-col="right" data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-92920-107-122" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: left; font-size: 16px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false">
+<div>El Reiki Angelical es un sistema de sanación seguro, de alta frecuencia y multidimensional.
+</div>
+<div><br></div>
+<div>
+<b>El Reiki Angelical trabaja a nivel del Alma, tratando la causa raíz de cualquier condición, promoviendo una sanación y transformación muy profunda.</b> Durante un tratamiento, tanto el practicante como el receptor se conectan a la energía divina pura a través del Reino Angelical de Luz. </div>
+<div><br></div>
+<div>Esto permite que energías de muy alta vibración de Ángeles, Arcángeles, Maestros Ascendidos y Sanadores Galácticos trabajen en el receptor para ayudar a liberar desequilibrios físicos, ancestrales, emocionales y kármicos a través de todo el tiempo.</div>
+<div><br></div>
+<div>
+<b>El Arcángel Metatrón describe el Reiki Angelical como 'La Nueva Sanación para Nuestro Tiempo', y dice que será fundamental para traer una de las formas más altas de sanación a individuos, grupos y al planeta.  </div>
+<div><br></div>
+<div><b>Ahora, puedes tener acceso a esta poderosa información de forma gratuita. </b></div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H noBorder borderSolid border3px cornersAll radius0 bgNoRepeat emptySection midWideContainer shadow0" id="section--89664-161" data-title="Section - Clone" data-block-color="0074C7" style="padding-top: 20px; padding-bottom: 20px; outline: none; margin-top: 0px;" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable"><div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--49231-176-139-153" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone - Clone" style="padding-top: 20px; padding-bottom: 20px; margin: 20px 0px 0px; outline: none;">
+<div id="col-full-187-101-149-157" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-138-145-108-170" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 34px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Bono GRATUITO #3</b></font></div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer border1px noBorder" id="section--39377-172-124" data-title="Section - Clone - Clone" data-block-color="0074C7" style="padding-top: 0px; padding-bottom: 0px; outline: none; border-color: rgb(45, 45, 45); margin-top: 0px; background-color: rgb(217, 217, 217);" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin noBorder" id="row--94051-154-161" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 100%; max-width: 100%; outline: none;">
+<div id="col-full-181-115-189" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-67725" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 28px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Audición Divina</b></font></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-71032-119-188-132" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 21px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><div><b>Cómo Reconocer Mensajes Cruciales de Tus Ángeles
+</b></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--33558-169-162" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row" style="padding-top: 0px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 100%; max-width: 100%;" col-array="4,8">
+<div id="col-left-173-186-186" class="innerContent col_left ui-resizable col-md-4" data-col="left" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-63554-105-125-161" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/0d/324705d93e481fac27ea59bc46d2d3/Divine-Hearing-min.jpg" class="elIMG ximg" alt="" width="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-44397" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 16px;" data-bold="inherit" data-gramm="false" contenteditable="false"><b>(Valor: $39.95)</b></div>
+</div>
+</div>
+</div>
+<div id="col-right-110-132-115" class="innerContent col_right ui-resizable col-md-8" data-col="right" data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-92920-107-139" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: left; font-size: 16px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false">
+<b>A veces, las respuestas evasivas que habías estado buscando están justo frente a tu nariz. Solo necesitas saber cómo conectarte con lo divino.
+<div><br></div>
+<div>
+<b>Los ángeles y otros seres divinos hablan todo el tiempo. Son casi como tambores resonantes o un pariente conversador - simplemente no paran con sus palabras de bondad, esperanza y amor.  </div>
+<div><br></div>
+<div>Sin embargo... es casi como si alguien hubiera puesto tapones para bloquear sus hermosas voces. Podría ser en forma de voces negativas, el ruido de la ansiedad o la amargura del dolor.   </div>
+<div><br></div>
+<div><b>Este entrenamiento exclusivo te enseñará cómo quitar estos tapones para que puedas escuchar a los ángeles - en su sabiduría infinita y descifrar mensajes cruciales para ayudar tu temporada en la vida. </b></div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer" id="section--89664-161-126" data-title="Section - Clone - Clone" data-block-color="0074C7" style="padding-top: 20px; padding-bottom: 20px; outline: none;" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable"><div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--49231-176-139-153-139" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone - Clone" style="padding-top: 20px; padding-bottom: 20px; margin: 20px 0px 0px; outline: none;">
+<div id="col-full-187-101-149-157-158" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-138-145-108-170-150" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 34px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Bono GRATUITO #4</b></font></div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection midWideContainer border1px noBorder" id="section--39377-172-124-188" data-title="Section - Clone - Clone - Clone" data-block-color="0074C7" style="padding-top: 0px; padding-bottom: 0px; outline: none; border-color: rgb(45, 45, 45); margin-top: 0px; background-color: rgb(217, 217, 217);" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin noBorder" id="row--94051-154-161-177" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 100%; max-width: 100%; outline: none;">
+<div id="col-full-181-115-189-185" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-67725-138" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 28px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Liberación Emocional con Tapping 101</b></font></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-71032-119-188-132-133" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 21px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><div><b>La Guía Definitiva Para Una Vida Libre de Estrés</b></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--33558-169-162-150" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row" style="padding-top: 0px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 100%; max-width: 100%;" col-array="4,8">
+<div id="col-left-173-186-186-131" class="innerContent col_left ui-resizable col-md-4" data-col="left" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-63554-105-125-161-108" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/db/5cb057e6c44304b2da8e23d0ab7d1d/Emotional-Freedom-Tapping-101-Ebook--2D-Design-min.jpg" class="elIMG ximg" alt="" width="250">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-12422" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 16px;" data-bold="inherit" data-gramm="false" contenteditable="false"><b>(Valor: $39.95)</b></div>
+</div>
+</div>
+</div>
+<div id="col-right-110-132-115-119" class="innerContent col_right ui-resizable col-md-8" data-col="right" data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px"><div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-92920-107-139-156" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 20px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: left; font-size: 16px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false">
+<div>
+<b>Técnica de Liberación Emocional (EFT)</b> es un tratamiento alternativo para el dolor físico y la angustia emocional.<br><br>También se ha utilizado como una herramienta de manifestación realmente poderosa, principalmente ayudando a las personas a eliminar viejas creencias limitantes.</div>
+<div><br></div>
+<div>Descubrirás una forma efectiva de usar los meridianos en tu cuerpo para crear equilibrio en tu sistema de energía, y ayudar a manejar; <b>estrés, emoción negativa, y dolor.</b>
+</div>
+<div><br></div>
+<div>El uso de los meridianos como remedio para una mejor salud se remonta a la antigua China.</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container noTopMargin padding20-top padding20-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 bgNoRepeat emptySection fullContainer" id="section--89664-161-126-152" data-title="Section - Clone - Clone - Clone" data-block-color="0074C7" style="padding-top: 20px; padding-bottom: 20px; outline: none;" data-trigger="none" data-animate="fade" data-delay="500">
+<div class="containerInner ui-sortable">
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--49231-176-139-153-139-159" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone - Clone" style="padding-top: 20px; padding-bottom: 20px; margin: 20px auto 0px; outline: none; width: 80%; max-width: 100%; background-color: rgba(255, 255, 255, 0);">
+<div id="col-full-187-101-149-157-158-126" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-55388-102-138-145-108-170-150-134" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 38px;" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><font color="#9e003b"><b>Aquí está todo lo que estás obteniendo hoy…</b></font></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--48108" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; width: 50%; max-width: 100%; outline: none;">
+<div id="col-full-152" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elBullet elMargin0 ui-droppable hiddenElementTools de-editable" id="tmp_list-34686" data-de-type="list" data-de-editing="false" data-title="icon bullet list" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false" style='margin-top: 0px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<ul class="ne elBulletList elBulletListNew elBulletList2 listBorder0" data-bold="inherit" data-gramm="false" contenteditable="false" style="color: rgb(255, 183, 39);">
+<li style="font-size: 18px;">
+<i class="fa fa-fw fa-check" class="color-primary"></i>​<b>El programa "Plan de Evolución Divina"...
+</b><i class="color-primary"><strike>(Valor: $99.95)</strike></i>
+</li>
+<li style="font-size: 18px;">
+<i contenteditable="false" class="color-primary" class="fa fa-fw fa-check"></i><i style="text-decoration-line: line-through; color: rgb(198, 41, 130);">​</i><b>El "Plan de Evolución Divina" (Versión Audio)... </b><i class="color-primary"><strike>(Valor: $67)</strike></i><br>
+</li>
+<li style="font-size: 18px;">
+<i class="fa fa-fw fa-check" class="color-primary"></i>​<b>El “Reiki Angelical Hecho Fácil” E-Book…
+</b><i class="color-primary"><strike>(Valor: $39.95)</strike></i>
+</li>
+<li style="font-size: 18px;">
+<i class="fa fa-fw fa-check" style="font-size: 18px; background-color: initial; color: rgb(198, 41, 130);"></i><span style="background-color: initial;">​</span><b style="background-color: initial;">El E-Book "Audición Divina"... </b><span style="background-color: initial;"><i class="color-primary"><strike>(Valor: $39.95)</strike></i></span><br>
+</li>
+<li style="font-size: 18px;">
+<i class="fa fa-fw fa-check" class="color-primary"></i><b>El “Liberación Emocional con Tapping 101” E-Book… </b><i class="color-primary"><strike>(Valor: $39.95)</strike></i>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--75424" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px auto; outline: none; width: 80%; max-width: 100%; background-color: rgba(255, 255, 255, 0);">
+<div id="col-full-173" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-10778" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 18px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false"><div>Y obtendrás todo eso solo por $67. Eso es un ENORME descuento de <b>$<strike>219.80</strike></b>.
+</div></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-91868" data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; cursor: pointer; display: block; font-family: "Arima Madurai", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Arima+Madurai">
+<div class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 18px; color: rgb(45, 45, 45);" data-bold="inherit" contenteditable="false" data-gramm="false" spellcheck="false">
+<div><br></div>
+<div>
+</div>
+<div>Haz clic en el botón de abajo para agregar el "Plan de Evolución Divina" a tu pedido, y comencemos...
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--43947-185" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone" style="padding-top: 20px; padding-bottom: 0px; margin: 0px auto; outline: none; width: 80%; max-width: 100%; background-color: rgba(255, 255, 255, 0);">
+<div id="col-full-182-170" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-85644-118" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/88/1cd044e08f42de8ec278f04ab8f6ba/Collage-Cd-__box--Divine-Evolution-Plan-min3.png" class="elIMG ximg" alt="" width="350">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_paragraph-76316" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 30px; outline: none; cursor: pointer;" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" style="text-align: center; font-size: 24px;" data-gramm="false" contenteditable="false">Oferta Por Tiempo Limitado SOLAMENTE <strike style="">$286.80</strike><span style="background-color: rgba(255, 255, 255, 0); color: inherit;"> <b>$67</b></span>
+</div>
+</div>
+<div class="de elBTN elAlign_center elMargin0 ui-droppable de-editable" id="tmp_button-23048-164" data-de-type="button" data-de-editing="false" data-title="button" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 10px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" data-element-theme="customized" aria-disabled="false">
+<a onclick="window.open(checkoutUrls.main, '_self');" class="elButton elButtonSize1 elButtonColor1 elButtonPadding2 elBtnVP_10 elButtonCorner60 elButtonFluid elBtnHP_25 elButtonTxtColor1 elBTN_b_none elButtonShadowFlatHighlight elBTNone elButtonBlock" style="color: rgb(255, 255, 255); background: rgb(255, 21, 0); font-size: 30px; cursor: pointer;" rel="noopener noreferrer" id="undefined-738">
+<span class="elButtonMain">¡Sí! Agregar A Mi Pedido<i class="fa_appended fa fa-arrow-circle-o-right"></i></span>
+<span class="elButtonSub"></span>
+</a>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-19642-126" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" class="text-center font-size-14" data-gramm="false" contenteditable="false">(El curso se agregará automáticamente a tu pedido)</div>
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-46952-120" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 10px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/images/credit-paypal.png" class="elIMG ximg" alt="" height="25">
+</div>
+<div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable" id="tmp_image-22421" data-de-type="img" data-de-editing="false" data-title="image" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
+<img src="hosted-up/images/ae/ffa8a01aea11e89895110ab6b1489f/60-day-money-back-guarantee.png" class="elIMG ximg" alt="" width="100">
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-66481" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" class="text-center font-size-14" data-gramm="false" contenteditable="false"> Una vez más, tu compra está protegida por nuestra Garantía de Devolución de Dinero de 60 Días</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row--40681-181" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row - Clone" style="padding-top: 0px; padding-bottom: 20px; margin: 20px auto 0px; width: 30%; max-width: 100%; outline: none;">
+<div id="col-full-171-104" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;">
+<div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elBTN elAlign_center elMargin0 elButtonBlock ui-droppable de-editable" id="tmp_button-61937" data-de-type="button" data-de-editing="false" data-title="button" data-ce="false" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 10px; outline: none; cursor: pointer; font-family: "Arima Madurai", Helvetica, sans-serif !important;' data-google-font="Arima+Madurai" aria-disabled="false">
+<a onclick="window.open(checkoutUrls.decline, '_self');" class="elButton elButtonSize1 elButtonColor1 elButtonRounded elButtonPadding2 elBtnVP_10 elButtonFluid elBtnHP_25 elButtonTxtColor1 elButtonCorner10 elBTNone elButtonNoShadow elBTN_b_1" style="color: rgb(8, 0, 250); font-weight: 600; background-color: rgb(217, 217, 217); font-size: 12px; cursor: pointer;" rel="noopener noreferrer">
+<span class="elButtonMain">No gracias, no quiero activar mi ADN Índigo y acelerar mi conexión con mi Ángel de la Guarda...</span>
+<span class="elButtonSub"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+<div class="container fullContainer noTopMargin padding40-top padding40-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 emptySection no-action bgRepeat" id="section--45103" data-title="Section" data-block-color="0074C7" style='padding-top: 0px; padding-bottom: 0px; background-color: rgb(136, 136, 136); outline: none; margin-top: 100px; background-image: url("https://angeloasis.com/wp-content/themes/twentynineteen-child/img/bg-pattern.jpg");' data-trigger="none" data-animate="fade" data-delay="500" data-timed-style="no-action" data-timed-minutes="27">
+<div class="containerInner ui-sortable"><div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" id="row-112" data-trigger="none" data-animate="fade" data-delay="500" data-title="1 column row" style="padding-top: 20px; padding-bottom: 20px; margin: 0px; outline: none;">
+<div id="col-full-131-120-176-175" class="col-md-12 innerContent col_left" data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column" style="outline: none;"><div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin" style="padding: 0 10px">
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-67575-177-187-128-182" data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 0px; outline: none; display: block; cursor: pointer; font-family: "Open Sans", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Open+Sans">
+<div class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0" style="text-align: center; font-size: 12px; color: rgb(255, 255, 255);" data-bold="inherit" data-gramm="false" spellcheck="false" contenteditable="false">
+</div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_paragraph-89209-144-178-130" data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='margin-top: 30px; outline: none; cursor: pointer; display: none; font-family: "Open Sans", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Open+Sans">
+<div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0" data-bold="inherit" style="text-align: center; color: rgb(255, 255, 255); font-size: 11px; display: none;" data-gramm="false" spellcheck="false" contenteditable="false"></div>
+</div>
+<div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_headline1-52176-114-103-140-121" data-de-type="headline" data-de-editing="false" data-title="Footer Headline" data-ce="true" data-trigger="none" data-animate="fade" data-delay="500" style='outline: none; cursor: pointer; display: block; margin-top: 30px; font-family: "Open Sans", Helvetica, sans-serif !important;' aria-disabled="false" data-google-font="Open+Sans">
+</div>
+</div></div>
+</div></div>
+</div>
+<div class="dropZoneForSections ui-droppable" style="display: none;"><div class="dropIconr"><i class="fa fa-plus"></i></div></div>
+  <input type="hidden" name="cf-state-county-dropdown-feature-enabled" value="true">
+</div>
+  
+
+  <input type="hidden" value="31355698" id="page-id">
+  <input type="hidden" value="31355698" id="root-id">
+  <input type="hidden" value="core" id="variant-check">
+  <input type="hidden" value="995096" id="user-id">
+  <input type="hidden" value="" id="cf-cid">
+  <input type="hidden" value="false" id="cf-page-oto">
+  <input type="hidden" value="false" id="ff-can-use-payment-intent-on-funnel-payments">
+  <input type="hidden" value="false" id="ff-can-use-updated-source-api-deprecation">
+
+  <script src="assets-up/lander.js"></script>
+
+</body>
+</html>
