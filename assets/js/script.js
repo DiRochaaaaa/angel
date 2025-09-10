@@ -6,7 +6,6 @@ let userData = {
     month: '',
     day: '',
     year: '',
-    email: '',
     angel: null
 };
 
@@ -70,15 +69,6 @@ function setupAutoSave() {
             saveProgress();
         });
     }
-    
-    // Auto-save para email
-    const emailField = document.getElementById('email');
-    if (emailField) {
-        emailField.addEventListener('input', function() {
-            userData.email = this.value;
-            saveProgress();
-        });
-    }
 }
 
 // Populate day and year selects
@@ -112,6 +102,9 @@ function setupGenderAutoAdvance() {
             if (currentStep === 2) {
                 userData.gender = this.value;
                 saveProgress(); // Salvar progresso
+                
+                // Evento de pixel removido para evitar duplicação
+                
                 setTimeout(() => {
                     nextStep();
                 }, 800); // Pequeno delay para feedback visual
@@ -126,7 +119,7 @@ function updateProgressBar() {
     const steps = document.querySelectorAll('.step');
     
     // Update progress bar width
-    const progressWidth = (currentStep / 4) * 100;
+    const progressWidth = (currentStep / 3) * 100;
     progressFill.style.width = progressWidth + '%';
     
     // Update step indicators
@@ -145,16 +138,33 @@ function validateCurrentStep() {
         case 1:
             const firstName = document.getElementById('firstName').value.trim();
             if (!firstName) {
-                alert('Por favor, ingresa tu nombre.');
+                showNotification('Por favor, ingresa tu nombre.', 'warning');
+                const nameField = document.getElementById('firstName');
+                if (nameField) {
+                    nameField.focus();
+                    nameField.classList.add('error-shake');
+                    setTimeout(() => nameField.classList.remove('error-shake'), 600);
+                }
                 return false;
             }
             userData.firstName = firstName;
+            
+            // Evento do pixel para primeiro passo completado
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+            
             return true;
             
         case 2:
             const gender = document.querySelector('input[name="gender"]:checked');
             if (!gender) {
-                alert('Por favor, selecciona tu género.');
+                showNotification('Por favor, selecciona tu género.', 'warning');
+                const genderSection = document.querySelector('.gender-options');
+                if (genderSection) {
+                    genderSection.classList.add('error-shake');
+                    setTimeout(() => genderSection.classList.remove('error-shake'), 600);
+                }
                 return false;
             }
             userData.gender = gender.value;
@@ -166,7 +176,12 @@ function validateCurrentStep() {
             const year = document.getElementById('year').value;
             
             if (!month || !day || !year) {
-                alert('Por favor, completa tu fecha de nacimiento.');
+                showNotification('Por favor, completa tu fecha de nacimiento.', 'warning');
+                const dateSection = document.querySelector('.date-inputs');
+                if (dateSection) {
+                    dateSection.classList.add('error-shake');
+                    setTimeout(() => dateSection.classList.remove('error-shake'), 600);
+                }
                 return false;
             }
             
@@ -175,24 +190,9 @@ function validateCurrentStep() {
             userData.year = year;
             return true;
             
-        case 4:
-            const email = document.getElementById('email').value.trim();
-            if (!email || !isValidEmail(email)) {
-                alert('Por favor, ingresa un email válido.');
-                return false;
-            }
-            userData.email = email;
-            return true;
-            
         default:
             return true;
     }
-}
-
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
 }
 
 // Move to next step
@@ -201,7 +201,7 @@ function nextStep() {
         return;
     }
     
-    if (currentStep < 4) {
+    if (currentStep < 3) {
         // Hide current step
         document.getElementById(`step${currentStep}`).classList.remove('active');
         
@@ -231,11 +231,16 @@ function generateReading() {
     // Determinar o anjo baseado no mês de nascimento
     userData.angel = getAngelByMonth(userData.month);
     
+    // Evento do pixel para geração de resultado
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'CompleteRegistration');
+    }
+    
     // Save progress before proceeding
     saveProgress();
     
-    // Hide step 4
-    document.getElementById('step4').classList.remove('active');
+    // Hide step 3
+    document.getElementById('step3').classList.remove('active');
     
     // Show loading screen
     document.getElementById('loading').classList.add('active');
@@ -318,6 +323,16 @@ function showOffer() {
     document.getElementById('results').classList.remove('active');
     document.getElementById('offer').classList.add('active');
     
+    // Marcar no localStorage que o usuário chegou na VSL
+    localStorage.setItem('angelOasisVSLReached', 'true');
+    
+    // Evento do pixel para visualização da VSL
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+            content_name: 'VSL - Video Sales Letter'
+        });
+    }
+    
     // Configurar botão do carrinho com parâmetros
     setupCartButton();
     
@@ -356,6 +371,8 @@ function setupCartButton() {
     if (addToCartBtn && !addToCartBtn.hasAttribute('data-configured')) {
         addToCartBtn.setAttribute('data-configured', 'true');
         addToCartBtn.addEventListener('click', function() {
+            // Eventos de pixel do Facebook removidos
+            
             // Se existe a função global, usa ela
             if (window.redirectWithParams) {
                 window.redirectWithParams(CHECKOUT_URL);
@@ -368,9 +385,6 @@ function setupCartButton() {
             // Adicionar dados do usuário para Hotmart
             if (userData && userData.firstName) {
                 url.searchParams.set('name', userData.firstName);
-            }
-            if (userData && userData.email) {
-                url.searchParams.set('email', userData.email);
             }
             if (userData && userData.gender) {
                 url.searchParams.set('gender', userData.gender);
@@ -492,6 +506,45 @@ function saveProgress() {
 }
 
 function loadProgress() {
+    // Verificar se o usuário já chegou na VSL
+    const vslReached = localStorage.getItem('angelOasisVSLReached');
+    if (vslReached === 'true') {
+        // Se já chegou na VSL, redirecionar diretamente para lá
+        const saved = localStorage.getItem('angelOasisProgress');
+        if (saved) {
+            try {
+                const progress = JSON.parse(saved);
+                userData = { ...userData, ...progress.userData };
+                
+                // Esconder todas as etapas
+                document.querySelectorAll('.step-content').forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                // Mostrar diretamente a VSL
+                document.getElementById('offer').classList.add('active');
+                
+                // Atualizar informações do usuário na VSL
+                updateUserNames();
+                updateAngelInfo();
+                
+                // Configurar botão do carrinho
+                setupCartButton();
+                
+                // Inicializar player se necessário
+                if (typeof initializePlayer === 'function') {
+                    initializePlayer();
+                }
+                
+                return; // Sair da função aqui
+            } catch (error) {
+                console.log('Error al cargar progreso VSL:', error);
+                // Em caso de erro, continuar com o fluxo normal
+            }
+        }
+    }
+    
+    // Fluxo normal se não chegou na VSL ainda
     const saved = localStorage.getItem('angelOasisProgress');
     if (saved) {
         try {
@@ -536,11 +589,6 @@ function loadProgress() {
                 if (yearField) yearField.value = userData.year;
             }
             
-            if (userData.email) {
-                const emailField = document.getElementById('email');
-                if (emailField) emailField.value = userData.email;
-            }
-            
             // Atualizar barra de progresso
             updateProgressBar();
             
@@ -555,5 +603,54 @@ function loadProgress() {
 // Clear progress (useful for testing or reset)
 function clearProgress() {
     localStorage.removeItem('angelOasisProgress');
+    localStorage.removeItem('angelOasisVSLReached');
     location.reload();
+}
+
+// Clear VSL flag specifically (useful for testing)
+function clearVSLFlag() {
+    localStorage.removeItem('angelOasisVSLReached');
+    console.log('VSL flag cleared - user will go through normal flow on next reload');
+}
+
+// Sistema de notificações elegante
+function showNotification(message, type = 'info') {
+    // Remover notificação existente se houver
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Criar nova notificação
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${getNotificationIcon(type)}</span>
+            <span class="notification-message">${message}</span>
+        </div>
+    `;
+    
+    // Adicionar ao DOM
+    document.body.appendChild(notification);
+    
+    // Animar entrada
+    setTimeout(() => notification.classList.add('show'), 100);
+    
+    // Remover após 4 segundos
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 4000);
+}
+
+// Ícones para diferentes tipos de notificação
+function getNotificationIcon(type) {
+    const icons = {
+        'info': 'ℹ️',
+        'success': '✅',
+        'warning': '⚠️',
+        'error': '❌'
+    };
+    return icons[type] || icons['info'];
 }

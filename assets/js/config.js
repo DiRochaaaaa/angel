@@ -8,14 +8,12 @@ const siteConfig = {
         steps: {
             step1: "Paso 1: ¿Cuál es tu nombre?",
             step2: "Paso 2: ¿Eres mujer u hombre?",
-            step3: "Paso 3: ¿Cuándo naciste?",
-            step4: "Paso 4: ¿Dónde debería enviarse tu lectura gratuita?"
+            step3: "Paso 3: ¿Cuándo naciste?"
         },
         
         placeholders: {
             firstName: "Ingresa Tu Nombre*",
-            lastName: "Ingresa Tu Apellido",
-            email: "Ingresa Tu Email"
+            lastName: "Ingresa Tu Apellido"
         },
         
         buttons: {
@@ -51,7 +49,6 @@ const siteConfig = {
     // Configurações de validação
     validation: {
         nameMinLength: 2,
-        emailRequired: true,
         dateRequired: true,
         genderRequired: true
     },
