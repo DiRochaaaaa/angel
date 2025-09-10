@@ -48,15 +48,15 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.onerror=null;document.body.style.fontFamily='Arial,sans-serif'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
     
-    <!-- CSS não-crítico carregado async com fallback + cache busting -->
-    <link rel="preload" href="assets/css/styles.css?v=2.1.0" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
-    <noscript><link rel="stylesheet" href="assets/css/styles.css?v=2.1.0"></noscript>
+    <!-- CSS não-crítico carregado async com fallback -->
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
+    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
     
-    <!-- Preload de recursos críticos com cache busting -->
+    <!-- Preload de recursos críticos -->
     <link rel="preload" href="assets/images/Angel-Oasis-logo-300x79.webp" as="image">
     <link rel="preload" href="assets/images/background-image.webp" as="image">
-    <link rel="preload" href="assets/js/script.js?v=2.1.0" as="script">
-    <link rel="preload" href="assets/js/config.js?v=2.1.0" as="script">
+    <link rel="preload" href="assets/js/script.js" as="script">
+    <link rel="preload" href="assets/js/config.js" as="script">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -99,6 +99,31 @@
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 console.log('[SW] Controller changed, reloading...');
                 window.location.reload();
+            });
+            
+            // Escutar mensagens do Service Worker
+            navigator.serviceWorker.addEventListener('message', event => {
+                console.log('[SW] Message received:', event.data);
+                
+                if (event.data.type === 'NEW_DEPLOY_ACTIVE') {
+                    console.log('[SW] New deploy detected:', event.data.version);
+                    console.log('[SW] Build timestamp:', event.data.buildTimestamp);
+                    console.log('[SW] Message:', event.data.message);
+                    
+                    // Reload automático para novo deploy (especialmente importante no mobile)
+                    setTimeout(() => {
+                        console.log('[SW] Reloading for new deploy...');
+                        window.location.reload(true);
+                    }, 500);
+                }
+                
+                // Manter compatibilidade com mensagens antigas
+                if (event.data.type === 'SW_UPDATED') {
+                    console.log('[SW] Legacy update message:', event.data.version);
+                    setTimeout(() => {
+                        window.location.reload(true);
+                    }, 1000);
+                }
             });
         });
     }
@@ -621,8 +646,8 @@
         }
     </script>
 
-    <!-- Scripts carregados com defer para não bloquear + cache busting -->
-    <script defer src="assets/js/config.js?v=2.1.0"></script>
-    <script defer src="assets/js/script.js?v=2.1.0"></script>
+    <!-- Scripts carregados com defer para não bloquear -->
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/script.js"></script>
 </body>
 </html>

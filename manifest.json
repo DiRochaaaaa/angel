@@ -2,7 +2,7 @@
   "name": "Angel Oasis - Descubre Tu Ángel de la Guarda",
   "short_name": "Angel Oasis",
   "description": "Descubre el nombre de tu Ángel de la Guarda personalizado y recibe tu mensaje espiritual gratuito",
-  "version": "2.1.0",
+
   "start_url": "/?utm_source=pwa",
   "scope": "/",
   "display": "standalone",

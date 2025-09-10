@@ -1,10 +1,19 @@
 // Service Worker para Angel Oasis
-// Versão 2.0 - Cache Inteligente e Otimizado
+// Versão 3.0 - Cache Automático com Build Timestamp
 
-const VERSION = '2.1.1';
-const CACHE_NAME = `angel-oasis-v${VERSION}-${Date.now()}`;
+// Gera versão automática baseada no timestamp do deploy
+const BUILD_TIMESTAMP = Date.now();
+const VERSION = `build-${BUILD_TIMESTAMP}`;
+const CACHE_NAME = `angel-oasis-${VERSION}`;
 const STATIC_CACHE = `static-${VERSION}`;
 const DYNAMIC_CACHE = `dynamic-${VERSION}`;
+
+// Detecta se é um novo deploy comparando com cache anterior
+const CACHE_PREFIX = 'angel-oasis-';
+const DEPLOY_KEY = 'last-deploy-timestamp';
+
+console.log('[SW] Build timestamp:', BUILD_TIMESTAMP);
+console.log('[SW] Cache version:', VERSION);
 
 // Assets estáticos para cache agressivo
 const staticAssets = [
@@ -43,17 +52,45 @@ const staticAssets = [
 
 // Instalar Service Worker
 self.addEventListener('install', function(event) {
-  console.log('[SW] Installing version:', VERSION);
+  console.log('[SW] Installing new deploy:', VERSION);
+  
+  // Força instalação imediata para qualquer novo deploy
+  self.skipWaiting();
+  
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(function(cache) {
-        console.log('[SW] Caching static assets');
-        return cache.addAll(staticAssets);
+    Promise.all([
+      // Detectar e limpar caches de deploys anteriores
+      caches.keys().then(cacheNames => {
+        console.log('[SW] Existing caches:', cacheNames);
+        const oldCaches = cacheNames.filter(name => 
+          name.startsWith(CACHE_PREFIX) && !name.includes(VERSION)
+        );
+        
+        if (oldCaches.length > 0) {
+          console.log('[SW] New deploy detected! Clearing old caches:', oldCaches);
+          return Promise.all(
+            oldCaches.map(cacheName => {
+              console.log('[SW] Deleting old deploy cache:', cacheName);
+              return caches.delete(cacheName);
+            })
+          );
+        } else {
+          console.log('[SW] No old caches found, fresh install');
+          return Promise.resolve();
+        }
+      }),
+      
+      // Cachear assets do novo deploy
+      caches.open(STATIC_CACHE).then(function(cache) {
+        console.log('[SW] Caching assets for new deploy:', VERSION);
+        return cache.addAll(staticAssets).then(() => {
+          // Salvar timestamp do deploy atual
+          return cache.put(DEPLOY_KEY, new Response(BUILD_TIMESTAMP.toString()));
+        });
       })
-      .then(() => {
-        console.log('[SW] Installation complete');
-        return self.skipWaiting();
-      })
+    ]).then(() => {
+      console.log('[SW] New deploy installation complete:', VERSION);
+    })
   );
 });
 
@@ -117,22 +154,46 @@ async function networkFirst(request) {
 
 // Ativar Service Worker
 self.addEventListener('activate', function(event) {
-  console.log('[SW] Activating version:', VERSION);
+  console.log('[SW] Activating new deploy:', VERSION);
+  
   event.waitUntil(
     Promise.all([
-      // Limpar caches antigos
+      // Limpeza final de qualquer cache remanescente de deploys antigos
       caches.keys().then(function(cacheNames) {
-        return Promise.all(
-          cacheNames.map(function(cacheName) {
-            if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-              console.log('[SW] Deleting old cache:', cacheName);
-              return caches.delete(cacheName);
-            }
-          })
+        console.log('[SW] Final cleanup on activate:', cacheNames);
+        const oldCaches = cacheNames.filter(name => 
+          name.startsWith(CACHE_PREFIX) && !name.includes(VERSION)
         );
+        
+        if (oldCaches.length > 0) {
+          console.log('[SW] Cleaning remaining old caches:', oldCaches);
+          return Promise.all(
+            oldCaches.map(cacheName => {
+              console.log('[SW] Final cleanup of:', cacheName);
+              return caches.delete(cacheName);
+            })
+          );
+        }
+        return Promise.resolve();
       }),
-      // Tomar controle imediatamente
-      self.clients.claim()
+      
+      // Tomar controle imediato de todas as abas
+      self.clients.claim().then(() => {
+        console.log('[SW] New deploy now controlling all tabs:', VERSION);
+        
+        // Notificar todas as abas sobre o novo deploy
+        return self.clients.matchAll().then(clients => {
+          console.log('[SW] Notifying', clients.length, 'clients about new deploy');
+          clients.forEach(client => {
+            client.postMessage({
+              type: 'NEW_DEPLOY_ACTIVE',
+              version: VERSION,
+              buildTimestamp: BUILD_TIMESTAMP,
+              message: 'Novo deploy ativo! Recarregando...'
+            });
+          });
+        });
+      })
     ])
   );
 });
