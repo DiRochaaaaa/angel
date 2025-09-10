@@ -352,7 +352,7 @@
                             
                             <!-- Container de Provas Sociais -->
                             <div class="social-proof-container esconder">
-                                <h3 style="color: white;">Lo Que Dicen Nuestros Clientes</h3>
+                                <h3>Lo Que Dicen Nuestros Clientes</h3>
                                 
                                 <div class="testimonial">
                                      <p>"No tenía idea de que podía recibir orientación de mi Ángel de la Guarda... Este producto me ayudó a descubrir mi verdadero ser espiritual... ¡Gracias!"</p>
@@ -461,6 +461,72 @@
                                   <p class="download-instruction">Haz clic para obtener tu reporte premium ahora</p>
                                  </div>
                             </div>
+                            
+                            <!-- Container de FAQ -->
+                            <div class="faq-container esconder">
+                                <h3>❓ Preguntas Frecuentes</h3>
+                                
+                                <div class="faq-accordion">
+                                    <div class="faq-item">
+                                        <div class="faq-question" onclick="toggleFaq(this)">
+                                            <h4>📥 ¿Cómo voy a recibir mi Informe del Ángel Guardián?</h4>
+                                            <span class="faq-toggle">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                             <div class="faq-answer-content">
+                                                 <p>En cuanto se confirme el pago, recibirás un enlace especial en tu correo electrónico. Solo necesitas hacer clic en ese enlace y tendrás acceso inmediato a tu Informe dentro de una página web privada y exclusiva, hecha especialmente para ti.</p>
+                                                 <ul>
+                                                     <li>👉 No necesitas descargar nada.</li>
+                                                     <li>👉 No necesitas instalar ninguna aplicación.</li>
+                                                     <li>👉 Funciona igual que cuando entras a una página normal, como Google o el correo electrónico.</li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                    </div>
+                                    
+                                    <div class="faq-item">
+                                        <div class="faq-question" onclick="toggleFaq(this)">
+                                            <h4>💻 ¿Puedo usarlo en mi celular o computadora?</h4>
+                                            <span class="faq-toggle">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                             <div class="faq-answer-content">
+                                                 <p>Sí. El Informe está disponible en un sitio protegido con contraseña. Puedes abrirlo:</p>
+                                                 <ul>
+                                                     <li>En tu celular (Android o iPhone)</li>
+                                                     <li>En tu computadora (Windows o Mac)</li>
+                                                     <li>En tu tablet</li>
+                                                 </ul>
+                                                 <p>Solo necesitas internet y hacer clic en el enlace. Todo estará listo para que lo uses, sin complicaciones.</p>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="faq-item">
+                                         <div class="faq-question" onclick="toggleFaq(this)">
+                                             <h4>⏳ ¿Tengo que bajar algún archivo, como un PDF?</h4>
+                                             <span class="faq-toggle">+</span>
+                                         </div>
+                                         <div class="faq-answer">
+                                             <div class="faq-answer-content">
+                                                 <p>No. Pensamos justamente en quienes no quieren llenar el celular o la computadora con descargas. Tu Informe estará disponible directamente en la página privada. Es más fácil, rápido y seguro.</p>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="faq-item">
+                                         <div class="faq-question" onclick="toggleFaq(this)">
+                                             <h4>👵 ¿Y si tengo dificultades para acceder?</h4>
+                                             <span class="faq-toggle">+</span>
+                                         </div>
+                                         <div class="faq-answer">
+                                             <div class="faq-answer-content">
+                                                 <p>No te preocupes. En el correo recibirás instrucciones paso a paso, con explicaciones claras y sencillas. Y si aún así necesitas ayuda, solo envíanos un correo y te guiaremos hasta que logres acceder sin problema.</p>
+                                             </div>
+                                         </div>
+                                     </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -502,6 +568,26 @@
                         });
                     }
                 }, 1000);
+            }
+        }
+        
+        // Função para toggle do FAQ accordion
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Fechar todos os outros FAQs
+            document.querySelectorAll('.faq-item.active').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle do FAQ atual
+            if (isActive) {
+                faqItem.classList.remove('active');
+            } else {
+                faqItem.classList.add('active');
             }
         }
     </script>
