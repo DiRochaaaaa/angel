@@ -103,10 +103,7 @@ function setupGenderAutoAdvance() {
                 userData.gender = this.value;
                 saveProgress(); // Salvar progresso
                 
-                // Evento do pixel para seleção de gênero
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead');
-                }
+                // Evento de pixel removido para evitar duplicação
                 
                 setTimeout(() => {
                     nextStep();
@@ -221,9 +218,6 @@ function generateReading() {
     // Evento do pixel para geração de resultado
     if (typeof fbq !== 'undefined') {
         fbq('track', 'CompleteRegistration');
-        fbq('track', 'ViewContent', {
-            content_name: userData.angel ? userData.angel.name : 'Angel Result'
-        });
     }
     
     // Save progress before proceeding
@@ -312,6 +306,13 @@ function updateAngelInfo() {
 function showOffer() {
     document.getElementById('results').classList.remove('active');
     document.getElementById('offer').classList.add('active');
+    
+    // Evento do pixel para visualização da VSL
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+            content_name: 'VSL - Video Sales Letter'
+        });
+    }
     
     // Configurar botão do carrinho com parâmetros
     setupCartButton();
