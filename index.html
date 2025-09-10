@@ -48,29 +48,58 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.onerror=null;document.body.style.fontFamily='Arial,sans-serif'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
     
-    <!-- CSS não-crítico carregado async com fallback -->
-    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
-    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
+    <!-- CSS não-crítico carregado async com fallback + cache busting -->
+    <link rel="preload" href="assets/css/styles.css?v=2.1.0" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
+    <noscript><link rel="stylesheet" href="assets/css/styles.css?v=2.1.0"></noscript>
     
-    <!-- Preload de recursos críticos -->
+    <!-- Preload de recursos críticos com cache busting -->
     <link rel="preload" href="assets/images/Angel-Oasis-logo-300x79.webp" as="image">
     <link rel="preload" href="assets/images/background-image.webp" as="image">
-    <link rel="preload" href="assets/js/script.js" as="script">
-    <link rel="preload" href="assets/js/config.js" as="script">
+    <link rel="preload" href="assets/js/script.js?v=2.1.0" as="script">
+    <link rel="preload" href="assets/js/config.js?v=2.1.0" as="script">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
-    <!-- Service Worker Registration -->
+    <!-- Service Worker Registration Avançado -->
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('/sw.js')
                 .then(function(registration) {
-                    console.log('ServiceWorker registration successful');
+                    console.log('[SW] Registration successful:', registration.scope);
+                    
+                    // Verificar atualizações
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        console.log('[SW] New version found, installing...');
+                        
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('[SW] New version ready');
+                                // Opcional: Notificar usuário sobre atualização
+                                if (confirm('Nova versão disponível! Recarregar página?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Verificar atualizações periodicamente
+                    setInterval(() => {
+                        registration.update();
+                    }, 60000); // Verifica a cada 1 minuto
+                    
                 }, function(err) {
-                    console.log('ServiceWorker registration failed: ', err);
+                    console.log('[SW] Registration failed:', err);
                 });
+                
+            // Escutar mudanças do Service Worker
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                console.log('[SW] Controller changed, reloading...');
+                window.location.reload();
+            });
         });
     }
     </script>
@@ -592,8 +621,8 @@
         }
     </script>
 
-    <!-- Scripts carregados com defer para não bloquear -->
-    <script defer src="assets/js/config.js"></script>
-    <script defer src="assets/js/script.js"></script>
+    <!-- Scripts carregados com defer para não bloquear + cache busting -->
+    <script defer src="assets/js/config.js?v=2.1.0"></script>
+    <script defer src="assets/js/script.js?v=2.1.0"></script>
 </body>
 </html>

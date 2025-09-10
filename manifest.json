@@ -2,17 +2,39 @@
   "name": "Angel Oasis - Descubre Tu Ángel de la Guarda",
   "short_name": "Angel Oasis",
   "description": "Descubre el nombre de tu Ángel de la Guarda personalizado y recibe tu mensaje espiritual gratuito",
-  "start_url": "/",
+  "version": "2.1.0",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#006eff",
-  "theme_color": "#006eff",
+  "background_color": "#1e3c72",
+  "theme_color": "#2a5298",
   "orientation": "portrait-primary",
+  "categories": ["lifestyle", "spirituality"],
+  "lang": "es",
   "icons": [
     {
       "src": "assets/images/Angel-Oasis-logo-300x79.webp",
       "sizes": "300x79",
       "type": "image/webp",
       "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/cropped-Angel-Oasis-wing-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "favicon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Descubrir mi Ángel",
+      "short_name": "Mi Ángel",
+      "description": "Descubre tu Ángel de la Guarda",
+      "url": "/?shortcut=discover",
+      "icons": [{
+        "src": "assets/images/cropped-Angel-Oasis-wing-32x32.png",
+        "sizes": "32x32"
+      }]
     }
   ]
 }
