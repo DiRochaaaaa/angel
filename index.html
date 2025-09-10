@@ -185,7 +185,6 @@
                 <span class="step active" data-step="1">1</span>
                 <span class="step" data-step="2">2</span>
                 <span class="step" data-step="3">3</span>
-                <span class="step" data-step="4">4</span>
             </div>
         </div>
 
@@ -201,7 +200,7 @@
                         <h3>Paso 1: ¿Cuál es tu nombre?</h3>
                         <div class="input-group">
                             <label for="firstName">Ingresa Tu Nombre*</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            <input type="text" id="firstName" name="firstName" placeholder="Ejemplo: María" required>
                         </div>
                         <button class="continue-btn" onclick="nextStep()">Continuar →</button>
                     </div>
@@ -272,23 +271,6 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="continue-btn" onclick="nextStep()">Continuar →</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 4: Email -->
-            <div class="step-content" id="step4">
-                <div class="card">
-                    <h2>El Día Que Naciste NO Fue Un Accidente. Un Ángel de la Guarda Fue Asignado Para Cuidarte...</h2>
-                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje Especial Que Te Espera...</p>
-                    
-                    <div class="form-section">
-                        <h3>Paso 4: ¿Dónde debería enviarse tu lectura gratuita?</h3>
-                        <div class="input-group">
-                            <label for="email">Ingresa Tu Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
                         <button class="continue-btn" onclick="generateReading()">¡Sí, Muestra Mi Resultado! →</button>
                     </div>
                 </div>
@@ -325,7 +307,7 @@
                                 <p>Todo lo que necesitas es... el "Decodificador Divino"...</p>
                             </div>
                             
-                            <button class="discover-btn" onclick="showOffer(); if(typeof fbq !== 'undefined') fbq('track', 'VideoView');" id="discoverBtn">Haz Clic Aquí Para Descubrir Cómo Conectarte Con El Arcángel Sariel</button>
+                            <button class="discover-btn" onclick="showOffer(); if(typeof fbq !== 'undefined') { fbq('track', 'ViewContent'); fbq('track', 'VideoView'); }" id="discoverBtn">Haz Clic Aquí Para Descubrir Cómo Conectarte Con El Arcángel Sariel</button>
                         </div>
                     </div>
                 </div>
