@@ -325,7 +325,12 @@
                                 <!-- Vídeo será carregado dinamicamente quando a página aparecer -->
                             </div>
                             
-                            <div class="offer-box esconder">
+                            <!-- Container do Botão sobre a VSL -->
+                            <div class="vsl-btn-container esconder">
+                                <button class="vsl-overlay-btn" onclick="document.getElementById('offer-box').scrollIntoView({behavior: 'smooth'});">Añadir al Carrito</button>
+                            </div>
+                            
+                            <div class="offer-box esconder" id="offer-box">
                                 <h4>El Reporte Premium del Ángel de la Guarda</h4>
                                 <p>"La Clave Para Desbloquear Toda Tu Grandeza Espiritual..."</p>
                                 <div class="price">

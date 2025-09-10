@@ -645,6 +645,58 @@ body {
     aspect-ratio: 16 / 9;
 }
 
+/* Container do Botão sobre a VSL */
+.vsl-btn-container {
+    position: relative;
+    margin-top: -140px; /* Margem negativa para subir sobre a VSL */
+    margin-bottom: 120px; /* Compensa a margem negativa */
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botão sobre a VSL */
+.vsl-overlay-btn {
+    position: relative;
+    z-index: 10001; /* Maior que qualquer outro elemento */
+    width: fit-content; /* Largura ajustada ao conteúdo */
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    animation: pulse-orange 2s infinite;
+}
+
+.vsl-overlay-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
+    background-position: 100% 0;
+}
+
+.vsl-overlay-btn:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+@keyframes pulse-orange {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.7);
+    }
+}
+
 .play-button {
     position: absolute;
     top: 50%;
