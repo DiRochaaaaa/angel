@@ -133,9 +133,6 @@
                 if (userData && userData.firstName) {
                     url.searchParams.set('name', userData.firstName);
                 }
-                if (userData && userData.email) {
-                    url.searchParams.set('email', userData.email);
-                }
                 if (userData && userData.gender) {
                     url.searchParams.set('gender', userData.gender);
                 }
@@ -202,7 +199,7 @@
                             <label for="firstName">Ingresa Tu Nombre*</label>
                             <input type="text" id="firstName" name="firstName" placeholder="Ejemplo: María" required>
                         </div>
-                        <button class="continue-btn" onclick="nextStep()">Continuar →</button>
+                        <button class="continue-btn" onclick="nextStep(); if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }">Continuar →</button>
                     </div>
                 </div>
             </div>
@@ -271,7 +268,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="continue-btn" onclick="generateReading()">¡Sí, Muestra Mi Resultado! →</button>
+                        <button class="continue-btn" onclick="generateReading(); if(typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }">¡Sí, Muestra Mi Resultado! →</button>
                     </div>
                 </div>
             </div>

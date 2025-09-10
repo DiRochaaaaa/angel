@@ -6,7 +6,6 @@ let userData = {
     month: '',
     day: '',
     year: '',
-    email: '',
     angel: null
 };
 
@@ -70,15 +69,6 @@ function setupAutoSave() {
             saveProgress();
         });
     }
-    
-    // Auto-save para email
-    const emailField = document.getElementById('email');
-    if (emailField) {
-        emailField.addEventListener('input', function() {
-            userData.email = this.value;
-            saveProgress();
-        });
-    }
 }
 
 // Populate day and year selects
@@ -112,6 +102,12 @@ function setupGenderAutoAdvance() {
             if (currentStep === 2) {
                 userData.gender = this.value;
                 saveProgress(); // Salvar progresso
+                
+                // Evento do pixel para seleção de gênero
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead');
+                }
+                
                 setTimeout(() => {
                     nextStep();
                 }, 800); // Pequeno delay para feedback visual
@@ -126,7 +122,7 @@ function updateProgressBar() {
     const steps = document.querySelectorAll('.step');
     
     // Update progress bar width
-    const progressWidth = (currentStep / 4) * 100;
+    const progressWidth = (currentStep / 3) * 100;
     progressFill.style.width = progressWidth + '%';
     
     // Update step indicators
@@ -149,6 +145,12 @@ function validateCurrentStep() {
                 return false;
             }
             userData.firstName = firstName;
+            
+            // Evento do pixel para primeiro passo completado
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+            
             return true;
             
         case 2:
@@ -175,24 +177,9 @@ function validateCurrentStep() {
             userData.year = year;
             return true;
             
-        case 4:
-            const email = document.getElementById('email').value.trim();
-            if (!email || !isValidEmail(email)) {
-                alert('Por favor, ingresa un email válido.');
-                return false;
-            }
-            userData.email = email;
-            return true;
-            
         default:
             return true;
     }
-}
-
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
 }
 
 // Move to next step
@@ -201,7 +188,7 @@ function nextStep() {
         return;
     }
     
-    if (currentStep < 4) {
+    if (currentStep < 3) {
         // Hide current step
         document.getElementById(`step${currentStep}`).classList.remove('active');
         
@@ -231,11 +218,19 @@ function generateReading() {
     // Determinar o anjo baseado no mês de nascimento
     userData.angel = getAngelByMonth(userData.month);
     
+    // Evento do pixel para geração de resultado
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'CompleteRegistration');
+        fbq('track', 'ViewContent', {
+            content_name: userData.angel ? userData.angel.name : 'Angel Result'
+        });
+    }
+    
     // Save progress before proceeding
     saveProgress();
     
-    // Hide step 4
-    document.getElementById('step4').classList.remove('active');
+    // Hide step 3
+    document.getElementById('step3').classList.remove('active');
     
     // Show loading screen
     document.getElementById('loading').classList.add('active');
@@ -356,6 +351,15 @@ function setupCartButton() {
     if (addToCartBtn && !addToCartBtn.hasAttribute('data-configured')) {
         addToCartBtn.setAttribute('data-configured', 'true');
         addToCartBtn.addEventListener('click', function() {
+            // Disparar evento de pixel do Facebook
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout');
+                fbq('track', 'Purchase', {
+                    value: 7.00,
+                    currency: 'USD'
+                });
+            }
+            
             // Se existe a função global, usa ela
             if (window.redirectWithParams) {
                 window.redirectWithParams(CHECKOUT_URL);
@@ -368,9 +372,6 @@ function setupCartButton() {
             // Adicionar dados do usuário para Hotmart
             if (userData && userData.firstName) {
                 url.searchParams.set('name', userData.firstName);
-            }
-            if (userData && userData.email) {
-                url.searchParams.set('email', userData.email);
             }
             if (userData && userData.gender) {
                 url.searchParams.set('gender', userData.gender);
@@ -534,11 +535,6 @@ function loadProgress() {
             if (userData.year) {
                 const yearField = document.getElementById('year');
                 if (yearField) yearField.value = userData.year;
-            }
-            
-            if (userData.email) {
-                const emailField = document.getElementById('email');
-                if (emailField) emailField.value = userData.email;
             }
             
             // Atualizar barra de progresso
