@@ -1,7 +1,7 @@
 // Service Worker para Angel Oasis
 // Versão 2.0 - Cache Inteligente e Otimizado
 
-const VERSION = '2.1.0';
+const VERSION = '2.1.1';
 const CACHE_NAME = `angel-oasis-v${VERSION}-${Date.now()}`;
 const STATIC_CACHE = `static-${VERSION}`;
 const DYNAMIC_CACHE = `dynamic-${VERSION}`;
