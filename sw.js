@@ -19,11 +19,16 @@ console.log('[SW] Cache version:', VERSION);
 const staticAssets = [
   '/',
   '/index.html',
+  '/up.html',
   '/assets/css/styles.css',
   '/assets/js/script.js',
   '/assets/js/config.js',
   '/script.js',
   '/manifest.json',
+  // Assets CSS e JS da página up
+  '/assets-up/lander.css',
+  '/assets-up/global.css',
+  '/assets-up/lander.js',
   // Imagens principais
   '/assets/images/Angel-Oasis-logo-300x79.webp',
   '/assets/images/background-image.webp',
@@ -102,10 +107,21 @@ self.addEventListener('fetch', function(event) {
   // Ignorar requisições não-HTTP
   if (!request.url.startsWith('http')) return;
   
+  // Permitir navegação livre para páginas HTML específicas
+  const allowedPages = ['/', '/index.html', '/up.html'];
+  const isAllowedPage = allowedPages.some(page => 
+    url.pathname === page || url.pathname.endsWith(page)
+  );
+  
   // Estratégia baseada no tipo de recurso
   if (request.destination === 'document') {
-    // HTML: Network First (sempre busca versão mais recente)
-    event.respondWith(networkFirst(request));
+    if (isAllowedPage) {
+      // Páginas permitidas: Network First (sempre busca versão mais recente)
+      event.respondWith(networkFirst(request));
+    } else {
+      // Outras páginas: deixar passar sem interceptar
+      return;
+    }
   } else if (staticAssets.includes(url.pathname) || request.destination === 'image' || request.destination === 'style' || request.destination === 'script') {
     // Assets estáticos: Cache First (performance máxima)
     event.respondWith(cacheFirst(request));
@@ -138,17 +154,51 @@ async function cacheFirst(request) {
 
 // Network First Strategy
 async function networkFirst(request) {
+  const url = new URL(request.url);
+  
   try {
     const response = await fetch(request);
     if (response.ok) {
-      const cache = await caches.open(DYNAMIC_CACHE);
-      cache.put(request, response.clone());
+      // Para documentos HTML, só cachear se for uma das páginas permitidas
+      if (request.destination === 'document') {
+        const allowedPages = ['/', '/index.html', '/up.html'];
+        const isAllowedPage = allowedPages.some(page => 
+          url.pathname === page || url.pathname.endsWith(page)
+        );
+        
+        if (isAllowedPage) {
+          const cache = await caches.open(DYNAMIC_CACHE);
+          cache.put(request, response.clone());
+        }
+      } else {
+        // Para outros recursos, cachear normalmente
+        const cache = await caches.open(DYNAMIC_CACHE);
+        cache.put(request, response.clone());
+      }
     }
     return response;
   } catch (error) {
-    const cache = await caches.open(DYNAMIC_CACHE);
-    const cached = await cache.match(request);
-    return cached || new Response('Offline', { status: 503 });
+    // Só retornar cache para páginas permitidas
+    if (request.destination === 'document') {
+      const allowedPages = ['/', '/index.html', '/up.html'];
+      const isAllowedPage = allowedPages.some(page => 
+        url.pathname === page || url.pathname.endsWith(page)
+      );
+      
+      if (isAllowedPage) {
+        const cache = await caches.open(DYNAMIC_CACHE);
+        const cached = await cache.match(request);
+        return cached || new Response('Página não encontrada', { status: 404 });
+      } else {
+        // Para outras páginas, retornar erro de rede
+        return new Response('Página não encontrada', { status: 404 });
+      }
+    } else {
+      // Para recursos não-HTML, tentar cache
+      const cache = await caches.open(DYNAMIC_CACHE);
+      const cached = await cache.match(request);
+      return cached || new Response('Recurso offline', { status: 503 });
+    }
   }
 }
 
