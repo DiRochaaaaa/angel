@@ -333,8 +333,8 @@ function showOffer() {
         });
     }
     
-    // Configurar botão do carrinho com parâmetros
-    setupCartButton();
+// Configurar botão do carrinho com parâmetros
+    // Removido - deixar o VTurb gerenciar os links automaticamente
     
     // Inicializar o player de vídeo apenas quando a página aparecer
     if (typeof initializePlayer === 'function') {
@@ -365,46 +365,7 @@ function showOffer() {
     }, 3000);
 }
 
-// Setup cart button with parameters
-function setupCartButton() {
-    const addToCartBtn = document.getElementById('addToCartBtn');
-    if (addToCartBtn && !addToCartBtn.hasAttribute('data-configured')) {
-        addToCartBtn.setAttribute('data-configured', 'true');
-        addToCartBtn.addEventListener('click', function() {
-            // Eventos de pixel do Facebook removidos
-            
-            // Se existe a função global, usa ela
-            if (window.redirectWithParams) {
-                window.redirectWithParams(CHECKOUT_URL);
-                return;
-            }
-            
-            // Fallback: construir URL manualmente
-            const url = new URL(CHECKOUT_URL);
-            
-            // Adicionar dados do usuário para Hotmart
-            if (userData && userData.firstName) {
-                url.searchParams.set('name', userData.firstName);
-            }
-            if (userData && userData.gender) {
-                url.searchParams.set('gender', userData.gender);
-            }
-            if (userData && userData.angel && userData.angel.name) {
-                url.searchParams.set('angel', userData.angel.name);
-            }
-            
-            // Adicionar parâmetros da URL atual
-            const currentParams = new URLSearchParams(window.location.search);
-            currentParams.forEach((value, key) => {
-                if (!url.searchParams.has(key)) {
-                    url.searchParams.set(key, value);
-                }
-            });
-            
-            window.location.href = url.toString();
-        });
-    }
-}
+
 
 // Add event listeners for gender selection
 document.addEventListener('DOMContentLoaded', function() {
@@ -529,7 +490,7 @@ function loadProgress() {
                 updateAngelInfo();
                 
                 // Configurar botão do carrinho
-                setupCartButton();
+                // Removido - deixar o VTurb gerenciar os links automaticamente
                 
                 // Inicializar player se necessário
                 if (typeof initializePlayer === 'function') {
