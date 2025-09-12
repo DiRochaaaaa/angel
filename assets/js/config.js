@@ -141,7 +141,7 @@ const siteConfig = {
     
     // URLs e links externos
     urls: {
-        paymentProcessor: "#", // Substituir por URL real do processador de pagamento
+        paymentProcessor: "https://pay.hotmart.com/P101801752S?off=d6tzczic", // URL de checkout da Hotmart
         termsOfService: "#",
         privacyPolicy: "#",
         contactUs: "#"

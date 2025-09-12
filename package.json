@@ -5,12 +5,12 @@
   "main": "index.html",
   "type": "module",
   "scripts": {
-    "start": "serve -s . -p ${PORT:-3000}",
-    "dev": "serve -s . -p 3000",
+    "start": "serve . -p ${PORT:-3000}",
+    "dev": "serve . -p 3000",
     "build": "echo 'Static site - no build required'",
     "postinstall": "echo 'Dependencies installed successfully'"
   },
-  "keywords": ["angel", "oasis", "static", "web", "pwa"],
+  "keywords": ["angel", "oasis", "static", "web"],
   "author": "Angel Oasis",
   "license": "MIT",
   "dependencies": {

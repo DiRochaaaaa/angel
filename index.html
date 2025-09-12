@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#006eff">
-    <meta name="description" content="Descubre el nombre de tu Ángel de la Guarda personalizado y recibe tu mensaje espiritual gratuito. Lectura angelical auténtica basada en tu fecha de nacimiento.">
+    <meta name="description"
+        content="Descubre el nombre de tu Ángel de la Guarda personalizado y recibe tu mensaje espiritual gratuito. Lectura angelical auténtica basada en tu fecha de nacimiento.">
     <!-- Otimizações de performance -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//www.facebook.com">
     <link rel="dns-prefetch" href="//connect.facebook.net">
     <title>Angel Oasis - Descubre Tu Ángel de la Guarda</title>
-    <link rel="icon" href="https://angeloasis.com/wp-content/uploads/2019/07/cropped-Angel-Oasis-wing-32x32.png" sizes="32x32">
-    
+    <link rel="icon" href="https://angeloasis.com/wp-content/uploads/2019/07/cropped-Angel-Oasis-wing-32x32.png"
+        sizes="32x32">
+
     <!-- VTurb -->
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
     <!-- Preloads do vídeo removidos - carregamento sob demanda -->
     <link rel="dns-prefetch" href="https://cdn.converteai.net">
     <link rel="dns-prefetch" href="https://scripts.converteai.net">
@@ -22,137 +25,222 @@
 
     <!-- CSS Crítico Inline para evitar render blocking -->
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{touch-action:manipulation;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
-        body{font-family:'Poppins',Arial,sans-serif;background-image:url('assets/images/background-image.webp');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;color:#333;font-display:swap;background-color:#667eea;touch-action:manipulation}
-        .container{max-width:1200px;margin:0 auto;padding:20px}
-        .header{text-align:center;margin-bottom:30px}
-        .logo{display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(255,255,255,1);padding:20px 40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);backdrop-filter:blur(10px);max-width:fit-content;margin:0 auto 20px auto}
-        .logo img{max-width:300px;height:auto;width:300px;height:79px}
-        .progress-container{margin-bottom:40px}
-        .progress-bar{width:100%;height:8px;background-color:rgba(255,255,255,0.3);border-radius:4px;overflow:hidden;margin-bottom:15px}
-        .progress-fill{height:100%;background:linear-gradient(90deg,#00d4ff,#006eff);border-radius:4px;width:25%;transition:width 0.5s ease}
-        .main-content{display:flex;justify-content:center}
-        .step-content{display:none;width:100%;max-width:600px}
-        .step-content.active{display:block}
-        .card{background:rgba(255,255,255,0.95);border-radius:20px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3);backdrop-filter:blur(10px);text-align:center;contain:layout style paint}
-        .btn{background:linear-gradient(45deg,#00d4ff,#006eff);color:white;border:none;padding:15px 30px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.3s ease;text-decoration:none;display:inline-block}
-        .btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,110,255,0.3)}
-        input,select{width:100%;padding:15px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px;margin-bottom:15px;transition:border-color 0.3s ease}
-        input:focus,select:focus{outline:none;border-color:#006eff}
-        .gender-options{display:flex;gap:15px;justify-content:center;margin:20px 0}
-        .gender-btn{flex:1;padding:20px;border:2px solid #e0e0e0;border-radius:15px;background:white;cursor:pointer;transition:all 0.3s ease;text-align:center}
-        .gender-btn.selected{border-color:#006eff;background:linear-gradient(45deg,#00d4ff,#006eff);color:white}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            touch-action: manipulation;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-image: url('assets/images/background-image.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            font-display: swap;
+            background-color: #667eea;
+            touch-action: manipulation
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 1);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: fit-content;
+            margin: 0 auto 20px auto
+        }
+
+        .logo img {
+            max-width: 300px;
+            height: auto;
+            width: 300px;
+            height: 79px
+        }
+
+        .progress-container {
+            margin-bottom: 40px
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #006eff);
+            border-radius: 4px;
+            width: 25%;
+            transition: width 0.5s ease
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center
+        }
+
+        .step-content {
+            display: none;
+            width: 100%;
+            max-width: 600px
+        }
+
+        .step-content.active {
+            display: block
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            contain: layout style paint
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00d4ff, #006eff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 110, 255, 0.3)
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #006eff
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0
+        }
+
+        .gender-btn {
+            flex: 1;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center
+        }
+
+        .gender-btn.selected {
+            border-color: #006eff;
+            background: linear-gradient(45deg, #00d4ff, #006eff);
+            color: white
+        }
     </style>
-    
+
     <!-- Preload crítico com fallback -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.onerror=null;document.body.style.fontFamily='Arial,sans-serif'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.onerror=null;document.body.style.fontFamily='Arial,sans-serif'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
     <!-- CSS não-crítico carregado async com fallback -->
-    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
-    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
-    
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </noscript>
+
     <!-- Preload de recursos críticos -->
     <link rel="preload" href="assets/images/Angel-Oasis-logo-300x79.webp" as="image">
     <link rel="preload" href="assets/images/background-image.webp" as="image">
     <link rel="preload" href="assets/js/script.js" as="script">
     <link rel="preload" href="assets/js/config.js" as="script">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    
-    <!-- Service Worker Registration Avançado -->
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
-                    console.log('[SW] Registration successful:', registration.scope);
-                    
-                    // Verificar atualizações
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        console.log('[SW] New version found, installing...');
-                        
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                console.log('[SW] New version ready');
-                                // Opcional: Notificar usuário sobre atualização
-                                if (confirm('Nova versão disponível! Recarregar página?')) {
-                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
-                                    window.location.reload();
-                                }
-                            }
-                        });
-                    });
-                    
-                    // Verificar atualizações periodicamente
-                    setInterval(() => {
-                        registration.update();
-                    }, 60000); // Verifica a cada 1 minuto
-                    
-                }, function(err) {
-                    console.log('[SW] Registration failed:', err);
-                });
-                
-            // Escutar mudanças do Service Worker
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-                console.log('[SW] Controller changed, reloading...');
-                window.location.reload();
-            });
-            
-            // Escutar mensagens do Service Worker
-            navigator.serviceWorker.addEventListener('message', event => {
-                console.log('[SW] Message received:', event.data);
-                
-                if (event.data.type === 'NEW_DEPLOY_ACTIVE') {
-                    console.log('[SW] New deploy detected:', event.data.version);
-                    console.log('[SW] Build timestamp:', event.data.buildTimestamp);
-                    console.log('[SW] Message:', event.data.message);
-                    
-                    // Reload automático para novo deploy (especialmente importante no mobile)
-                    setTimeout(() => {
-                        console.log('[SW] Reloading for new deploy...');
-                        window.location.reload(true);
-                    }, 500);
-                }
-                
-                // Manter compatibilidade com mensagens antigas
-                if (event.data.type === 'SW_UPDATED') {
-                    console.log('[SW] Legacy update message:', event.data.version);
-                    setTimeout(() => {
-                        window.location.reload(true);
-                    }, 1000);
-                }
-            });
-        });
-    }
-    </script>
-    
+
+
+
+
+
     <!-- Meta Pixel Code - Otimizado -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '891530102691135');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '891530102691135');
+        fbq('track', 'PageView');
     </script>
 
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=891530102691135&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=891530102691135&ev=PageView&noscript=1" /></noscript>
 
     <!-- Propagação de Parâmetros -->
     <script>
-        window.onload = function() {
+        window.onload = function () {
             const currentParams = new URLSearchParams(window.location.search);
-            
+
             // Função que mescla sem duplicar
             function mergeParams(href) {
                 const url = new URL(href, window.location.origin);
@@ -181,9 +269,9 @@
             }
 
             // Função global para redirecionar com parâmetros
-            window.redirectWithParams = function(baseUrl) {
+            window.redirectWithParams = function (baseUrl) {
                 const url = new URL(baseUrl);
-                
+
                 // Adicionar dados do usuário coletados para Hotmart
                 if (userData && userData.firstName) {
                     url.searchParams.set('name', userData.firstName);
@@ -194,14 +282,14 @@
                 if (userData && userData.angel && userData.angel.name) {
                     url.searchParams.set('angel', userData.angel.name);
                 }
-                
+
                 // Adicionar parâmetros originais da URL
                 currentParams.forEach((value, key) => {
                     if (!url.searchParams.has(key)) {
                         url.searchParams.set(key, value);
                     }
                 });
-                
+
                 window.location.href = url.toString();
             };
 
@@ -209,9 +297,16 @@
             setTimeout(() => {
                 const addToCartBtn = document.getElementById('addToCartBtn');
                 if (addToCartBtn) {
-                    addToCartBtn.addEventListener('click', function() {
-                        // URL de checkout da Hotmart
-                        redirectWithParams('https://pay.hotmart.com/P101801752S?off=d6tzczic');
+                    // O botão agora é um link direto, mas ainda podemos adicionar parâmetros se necessário
+                    addToCartBtn.addEventListener('click', function (e) {
+                        // Permitir que o link funcione normalmente, mas adicionar tracking se necessário
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Purchase', {
+                                value: 7.00,
+                                currency: 'USD'
+                            });
+                        }
+                        // O link já redirecionará automaticamente
                     });
                 }
             }, 1000);
@@ -219,6 +314,7 @@
     </script>
 
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -246,15 +342,18 @@
             <div class="step-content active" id="step1">
                 <div class="card">
                     <h2>El Día Que Naciste NO Fue Un Accidente. Un Ángel de la Guarda Fue Asignado Para Cuidarte...</h2>
-                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje Especial Que Te Espera...</p>
-                    
+                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje
+                        Especial Que Te Espera...</p>
+
                     <div class="form-section">
                         <h3>Paso 1: ¿Cuál es tu nombre?</h3>
                         <div class="input-group">
                             <label for="firstName">Ingresa Tu Nombre*</label>
                             <input type="text" id="firstName" name="firstName" placeholder="Ejemplo: María" required>
                         </div>
-                        <button class="continue-btn" onclick="nextStep(); if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }">Continuar →</button>
+                        <button class="continue-btn"
+                            onclick="nextStep(); if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }">Continuar
+                            →</button>
                         <p class="download-instruction">Haz clic para continuar con el siguiente paso</p>
                     </div>
                 </div>
@@ -264,8 +363,9 @@
             <div class="step-content" id="step2">
                 <div class="card">
                     <h2>El Día Que Naciste NO Fue Un Accidente. Un Ángel de la Guarda Fue Asignado Para Cuidarte...</h2>
-                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje Especial Que Te Espera...</p>
-                    
+                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje
+                        Especial Que Te Espera...</p>
+
                     <div class="form-section">
                         <h3>Paso 2: ¿Eres mujer u hombre?</h3>
                         <div class="gender-options">
@@ -278,16 +378,17 @@
                                 <span class="gender-btn">Mujer</span>
                             </label>
                         </div>
-                             </div>
-                         </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Step 3: Birth Date -->
             <div class="step-content" id="step3">
                 <div class="card">
                     <h2>El Día Que Naciste NO Fue Un Accidente. Un Ángel de la Guarda Fue Asignado Para Cuidarte...</h2>
-                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje Especial Que Te Espera...</p>
-                    
+                    <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje
+                        Especial Que Te Espera...</p>
+
                     <div class="form-section">
                         <h3>Paso 3: ¿Cuándo naciste?</h3>
                         <div class="date-inputs">
@@ -324,7 +425,9 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="continue-btn" onclick="generateReading(); if(typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }">¡Sí, Muestra Mi Resultado! →</button>
+                        <button class="continue-btn"
+                            onclick="generateReading(); if(typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }">¡Sí,
+                            Muestra Mi Resultado! →</button>
                         <p class="download-instruction">Haz clic para generar tu lectura personalizada</p>
                     </div>
                 </div>
@@ -335,8 +438,10 @@
                 <div class="card">
                     <div class="loading-content">
                         <div class="checkmark">✓</div>
-                        <h3>El Día Que Naciste NO Fue Un Accidente. Un Ángel de la Guarda Fue Asignado Para Cuidarte...</h3>
-                        <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje Especial Que Te Espera...</p>
+                        <h3>El Día Que Naciste NO Fue Un Accidente. Un Ángel de la Guarda Fue Asignado Para Cuidarte...
+                        </h3>
+                        <p>Ingresa Tus Detalles Abajo Para Descubrir el Nombre de Tu Ángel de la Guarda y El Mensaje
+                            Especial Que Te Espera...</p>
                         <div class="spinner"></div>
                     </div>
                 </div>
@@ -345,23 +450,32 @@
             <!-- Results Screen -->
             <div class="step-content" id="results">
                 <div class="card">
-                    <h2><span id="userName"></span>, El Arcángel <span id="angelNameTitle">Sariel</span> Tiene Las Llaves De Tu Gran Destino...</h2>
+                    <h2><span id="userName"></span>, El Arcángel <span id="angelNameTitle">Sariel</span> Tiene Las
+                        Llaves De Tu Gran Destino...</h2>
                     <p>Este Reporte Personalizado del Ángel de la Guarda Ha Sido Preparado Para:</p>
-                    
+
                     <div class="result-content">
                         <div class="angel-info">
                             <h3>Querido/a <span id="userNameResult"></span>,</h3>
                             <p>El día que naciste tenías un Ángel muy especial cuidándote...</p>
-                            <p>Tu Ángel de la Guarda se llama <span id="angelNameText">Sariel</span> y <span id="angelNameText2">Sariel</span> tiene mucho que decirte que se revelará en un momento.</p>
-                            
+                            <p>Tu Ángel de la Guarda se llama <span id="angelNameText">Sariel</span> y <span
+                                    id="angelNameText2">Sariel</span> tiene mucho que decirte que se revelará en un
+                                momento.</p>
+
                             <div class="angel-details">
                                 <h4>Tu Arcángel de la Guarda es <span id="angelNameDetails">Sariel</span></h4>
-                                <img src="assets/images/uriel.jpg" alt="Arcángel Sariel" class="angel-image" width="150" height="150" loading="lazy" id="angelImage">
-                                <p id="angelDescription">El nombre de Sariel se traduce como "Mandato de Dios". Sariel proporciona guía divina y dirección, ayudándote a seguir tu camino espiritual con confianza.</p>
+                                <img src="assets/images/uriel.jpg" alt="Arcángel Sariel" class="angel-image" width="150"
+                                    height="150" loading="lazy" id="angelImage">
+                                <p id="angelDescription">El nombre de Sariel se traduce como "Mandato de Dios". Sariel
+                                    proporciona guía divina y dirección, ayudándote a seguir tu camino espiritual con
+                                    confianza.</p>
                                 <p>Todo lo que necesitas es... el "Decodificador Divino"...</p>
                             </div>
-                            
-                            <button class="discover-btn" onclick="showOffer(); if(typeof fbq !== 'undefined') { fbq('track', 'ViewContent'); fbq('track', 'VideoView'); }" id="discoverBtn">Haz Clic Aquí Para Descubrir Cómo Conectarte Con El Arcángel Sariel</button>
+
+                            <button class="discover-btn"
+                                onclick="showOffer(); if(typeof fbq !== 'undefined') { fbq('track', 'ViewContent'); fbq('track', 'VideoView'); }"
+                                id="discoverBtn">Haz Clic Aquí Para Descubrir Cómo Conectarte Con El Arcángel
+                                Sariel</button>
                             <p class="download-instruction">Haz clic para acceder a tu guía espiritual completa</p>
                         </div>
                     </div>
@@ -371,24 +485,30 @@
             <!-- Offer Screen -->
             <div class="step-content" id="offer">
                 <div class="card">
-                    <h2><span id="userNameOffer"></span>, El Arcángel <span id="angelNameOffer">Sariel</span> Tiene Las Llaves De Tu Gran Destino...</h2>
+                    <h2><span id="userNameOffer"></span>, El Arcángel <span id="angelNameOffer">Sariel</span> Tiene Las
+                        Llaves De Tu Gran Destino...</h2>
                     <p>Este Reporte Personalizado del Ángel de la Guarda Ha Sido Preparado Para:</p>
-                    
+
                     <div class="offer-content">
-                        
+
                         <div class="offer-details">
-                            <h3>Querido/a <span id="userNameDear"></span>, Estás A Punto De Descubrir El Secreto Definitivo Para Conectarte Con El Arcángel <span id="angelNameOfferDetails">Sariel</span>... (Comenzando En Las Próximas 24 Horas...)</h3>
-                            
+                            <h3>Querido/a <span id="userNameDear"></span>, Estás A Punto De Descubrir El Secreto
+                                Definitivo Para Conectarte Con El Arcángel <span
+                                    id="angelNameOfferDetails">Sariel</span>... (Comenzando En Las Próximas 24 Horas...)
+                            </h3>
+
                             <div class="video-placeholder" id="videoContainer">
                                 <!-- Vídeo será carregado dinamicamente quando a página aparecer -->
                             </div>
-                            
+
                             <!-- Container do Botão sobre a VSL -->
                             <div class="vsl-btn-container esconder">
-                                <button class="vsl-overlay-btn" onclick="document.getElementById('offer-box').scrollIntoView({behavior: 'smooth'});">Añadir al Carrito</button>
-                                
+                                <button class="vsl-overlay-btn"
+                                    onclick="document.getElementById('offer-box').scrollIntoView({behavior: 'smooth'});">Añadir
+                                    al Carrito</button>
+
                             </div>
-                            
+
                             <div class="offer-box esconder" id="offer-box">
                                 <h4>El Reporte Premium del Ángel de la Guarda</h4>
                                 <p>"La Clave Para Desbloquear Toda Tu Grandeza Espiritual..."</p>
@@ -396,131 +516,150 @@
                                     <span class="old-price">$179.95</span>
                                     <span class="new-price">SOLO HOY $7</span>
                                 </div>
-                                <button id="addToCartBtn" class="add-to-cart-btn">
+                                <a href="https://pay.hotmart.com/P101801752S?off=d6tzczic" id="addToCartBtn"
+                                    class="add-to-cart-btn" target="_blank" rel="noopener">
                                     <span class="cart-icon">🛒</span>
                                     <span class="cart-text">Agregar Al Carrito</span>
-                                </button>
-                                
+                                </a>
+
                                 <!-- Texto de instrução para download -->
-                                <p class="download-instruction">Haz clic en el botón para descargar tu reporte instantáneamente</p>
+                                <p class="download-instruction">Haz clic en el botón para descargar tu reporte
+                                    instantáneamente</p>
                             </div>
-                            
+
                             <!-- Container de Provas Sociais -->
                             <div class="social-proof-container esconder">
                                 <h3>Lo Que Dicen Nuestros Clientes</h3>
-                                
+
                                 <div class="testimonial">
-                                     <p>"No tenía idea de que podía recibir orientación de mi Ángel de la Guarda... Este producto me ayudó a descubrir mi verdadero ser espiritual... ¡Gracias!"</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/mulher1.png" alt="María D." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">María D.</span>
-                                             <span class="author-title">Diseñadora</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <div class="testimonial">
-                                     <p>"Compré el Reporte Premium del Ángel de la Guarda hace unas semanas, después de descubrir que mi Ángel de la Guarda es el Arcángel Miguel. El reporte fue sorprendentemente preciso. Descubrí mis fortalezas y eso me ayudó a recuperar mi confianza perdida... Es altamente recomendado. ¡Gracias Ángel Oasis!"</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/mulher2.jpg" alt="Patricia J." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">Patricia J.</span>
-                                             <span class="author-title">Trabajadora Social</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <div class="testimonial">
-                                     <p>"El Reporte Premium del Ángel de la Guarda me ayudó a darme cuenta de mi verdadero propósito en la vida... ¡No puedo agradecerte lo suficiente!"</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/mulher3.jpg" alt="Vanessa D." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">Vanessa D.</span>
-                                             <span class="author-title">Maestra</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <div class="testimonial">
-                                     <p>"Conectar con mi Ángel de la Guarda es una verdadera bendición... Es como tener un súper poder divino en todo lo que hago. Gracias Ángel Oasis"</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/homem1.jpg" alt="Adán R." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">Adán R.</span>
-                                             <span class="author-title">Entrenador Físico</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <div class="testimonial">
-                                     <p>"Al principio era escéptica porque tengo 72 años y nunca había comprado ningún curso en línea antes. En serio, no puedo creer que obtuve tanto valor por solo $7. Lo recomiendo altamente..."</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/mulher4.jpg" alt="Geraldina A." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">Geraldina A.</span>
-                                             <span class="author-title">Jubilada</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <div class="testimonial">
-                                     <p>"Este curso me ayudó a sanarme... He estado sufriendo de estrés y ansiedad durante los últimos años... Gracias al Reporte Premium del Ángel de la Guarda... Dejé mis medicamentos y ahora tengo una nueva esperanza para el futuro."</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/homem2.jpg" alt="Juan C." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">Juan C.</span>
-                                             <span class="author-title">Abogado</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <div class="testimonial">
-                                     <p>"Mi Ángel de la Guarda, el Arcángel Uriel me ayuda a tomar las decisiones correctas en mi vida... Salí de deudas en solo 6 meses. No lo habría creído hace unos meses."</p>
-                                     <div class="testimonial-author">
-                                         <img src="assets/images/provas/mulher5.png" alt="Bethany K." class="author-photo">
-                                         <div class="author-info">
-                                             <span class="author-name">Bethany K.</span>
-                                             <span class="author-title">Estudiante</span>
-                                         </div>
-                                     </div>
-                                     <div class="rating">
-                                         <span>⭐⭐⭐⭐⭐</span>
-                                     </div>
-                                 </div>
-                                 
-                                 <!-- Botão para a Oferta -->
-                                 <div style="text-align: center; margin-top: 30px;">
-                                     <button class="social-proof-cta-btn" onclick="document.getElementById('offer-box').scrollIntoView({behavior: 'smooth'});">
-                                      <span class="offer-icon">🎁</span>
-                                      <span class="offer-text">Recibir guía espiritual ya</span>
-                                  </button>
-                                  <p class="download-instruction">Haz clic para obtener tu reporte premium ahora</p>
-                                 </div>
+                                    <p>"No tenía idea de que podía recibir orientación de mi Ángel de la Guarda... Este
+                                        producto me ayudó a descubrir mi verdadero ser espiritual... ¡Gracias!"</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/mulher1.png" alt="María D." class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">María D.</span>
+                                            <span class="author-title">Diseñadora</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial">
+                                    <p>"Compré el Reporte Premium del Ángel de la Guarda hace unas semanas, después de
+                                        descubrir que mi Ángel de la Guarda es el Arcángel Miguel. El reporte fue
+                                        sorprendentemente preciso. Descubrí mis fortalezas y eso me ayudó a recuperar mi
+                                        confianza perdida... Es altamente recomendado. ¡Gracias Ángel Oasis!"</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/mulher2.jpg" alt="Patricia J."
+                                            class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">Patricia J.</span>
+                                            <span class="author-title">Trabajadora Social</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial">
+                                    <p>"El Reporte Premium del Ángel de la Guarda me ayudó a darme cuenta de mi
+                                        verdadero propósito en la vida... ¡No puedo agradecerte lo suficiente!"</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/mulher3.jpg" alt="Vanessa D."
+                                            class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">Vanessa D.</span>
+                                            <span class="author-title">Maestra</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial">
+                                    <p>"Conectar con mi Ángel de la Guarda es una verdadera bendición... Es como tener
+                                        un súper poder divino en todo lo que hago. Gracias Ángel Oasis"</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/homem1.jpg" alt="Adán R." class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">Adán R.</span>
+                                            <span class="author-title">Entrenador Físico</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial">
+                                    <p>"Al principio era escéptica porque tengo 72 años y nunca había comprado ningún
+                                        curso en línea antes. En serio, no puedo creer que obtuve tanto valor por solo
+                                        $7. Lo recomiendo altamente..."</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/mulher4.jpg" alt="Geraldina A."
+                                            class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">Geraldina A.</span>
+                                            <span class="author-title">Jubilada</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial">
+                                    <p>"Este curso me ayudó a sanarme... He estado sufriendo de estrés y ansiedad
+                                        durante los últimos años... Gracias al Reporte Premium del Ángel de la Guarda...
+                                        Dejé mis medicamentos y ahora tengo una nueva esperanza para el futuro."</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/homem2.jpg" alt="Juan C." class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">Juan C.</span>
+                                            <span class="author-title">Abogado</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial">
+                                    <p>"Mi Ángel de la Guarda, el Arcángel Uriel me ayuda a tomar las decisiones
+                                        correctas en mi vida... Salí de deudas en solo 6 meses. No lo habría creído hace
+                                        unos meses."</p>
+                                    <div class="testimonial-author">
+                                        <img src="assets/images/provas/mulher5.png" alt="Bethany K."
+                                            class="author-photo">
+                                        <div class="author-info">
+                                            <span class="author-name">Bethany K.</span>
+                                            <span class="author-title">Estudiante</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+
+                                <!-- Botão para a Oferta -->
+                                <div style="text-align: center; margin-top: 30px;">
+                                    <button class="social-proof-cta-btn"
+                                        onclick="document.getElementById('offer-box').scrollIntoView({behavior: 'smooth'});">
+                                        <span class="offer-icon">🎁</span>
+                                        <span class="offer-text">Recibir guía espiritual ya</span>
+                                    </button>
+                                    <p class="download-instruction">Haz clic para obtener tu reporte premium ahora</p>
+                                </div>
                             </div>
-                            
+
                             <!-- Container de FAQ -->
                             <div class="faq-container esconder">
                                 <h3>❓ Preguntas Frecuentes</h3>
-                                
+
                                 <div class="faq-accordion">
                                     <div class="faq-item">
                                         <div class="faq-question" onclick="toggleFaq(this)">
@@ -528,58 +667,69 @@
                                             <span class="faq-toggle">+</span>
                                         </div>
                                         <div class="faq-answer">
-                                             <div class="faq-answer-content">
-                                                 <p>En cuanto se confirme el pago, recibirás un enlace especial en tu correo electrónico. Solo necesitas hacer clic en ese enlace y tendrás acceso inmediato a tu Informe dentro de una página web privada y exclusiva, hecha especialmente para ti.</p>
-                                                 <ul>
-                                                     <li>👉 No necesitas descargar nada.</li>
-                                                     <li>👉 No necesitas instalar ninguna aplicación.</li>
-                                                     <li>👉 Funciona igual que cuando entras a una página normal, como Google o el correo electrónico.</li>
-                                                 </ul>
-                                             </div>
-                                         </div>
+                                            <div class="faq-answer-content">
+                                                <p>En cuanto se confirme el pago, recibirás un enlace especial en tu
+                                                    correo electrónico. Solo necesitas hacer clic en ese enlace y
+                                                    tendrás acceso inmediato a tu Informe dentro de una página web
+                                                    privada y exclusiva, hecha especialmente para ti.</p>
+                                                <ul>
+                                                    <li>👉 No necesitas descargar nada.</li>
+                                                    <li>👉 No necesitas instalar ninguna aplicación.</li>
+                                                    <li>👉 Funciona igual que cuando entras a una página normal, como
+                                                        Google o el correo electrónico.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
+
                                     <div class="faq-item">
                                         <div class="faq-question" onclick="toggleFaq(this)">
                                             <h4>💻 ¿Puedo usarlo en mi celular o computadora?</h4>
                                             <span class="faq-toggle">+</span>
                                         </div>
                                         <div class="faq-answer">
-                                             <div class="faq-answer-content">
-                                                 <p>Sí. El Informe está disponible en un sitio protegido con contraseña. Puedes abrirlo:</p>
-                                                 <ul>
-                                                     <li>En tu celular (Android o iPhone)</li>
-                                                     <li>En tu computadora (Windows o Mac)</li>
-                                                     <li>En tu tablet</li>
-                                                 </ul>
-                                                 <p>Solo necesitas internet y hacer clic en el enlace. Todo estará listo para que lo uses, sin complicaciones.</p>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     
-                                     <div class="faq-item">
-                                         <div class="faq-question" onclick="toggleFaq(this)">
-                                             <h4>⏳ ¿Tengo que bajar algún archivo, como un PDF?</h4>
-                                             <span class="faq-toggle">+</span>
-                                         </div>
-                                         <div class="faq-answer">
-                                             <div class="faq-answer-content">
-                                                 <p>No. Pensamos justamente en quienes no quieren llenar el celular o la computadora con descargas. Tu Informe estará disponible directamente en la página privada. Es más fácil, rápido y seguro.</p>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     
-                                     <div class="faq-item">
-                                         <div class="faq-question" onclick="toggleFaq(this)">
-                                             <h4>👵 ¿Y si tengo dificultades para acceder?</h4>
-                                             <span class="faq-toggle">+</span>
-                                         </div>
-                                         <div class="faq-answer">
-                                             <div class="faq-answer-content">
-                                                 <p>No te preocupes. En el correo recibirás instrucciones paso a paso, con explicaciones claras y sencillas. Y si aún así necesitas ayuda, solo envíanos un correo y te guiaremos hasta que logres acceder sin problema.</p>
-                                             </div>
-                                         </div>
-                                     </div>
+                                            <div class="faq-answer-content">
+                                                <p>Sí. El Informe está disponible en un sitio protegido con contraseña.
+                                                    Puedes abrirlo:</p>
+                                                <ul>
+                                                    <li>En tu celular (Android o iPhone)</li>
+                                                    <li>En tu computadora (Windows o Mac)</li>
+                                                    <li>En tu tablet</li>
+                                                </ul>
+                                                <p>Solo necesitas internet y hacer clic en el enlace. Todo estará listo
+                                                    para que lo uses, sin complicaciones.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="faq-item">
+                                        <div class="faq-question" onclick="toggleFaq(this)">
+                                            <h4>⏳ ¿Tengo que bajar algún archivo, como un PDF?</h4>
+                                            <span class="faq-toggle">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="faq-answer-content">
+                                                <p>No. Pensamos justamente en quienes no quieren llenar el celular o la
+                                                    computadora con descargas. Tu Informe estará disponible directamente
+                                                    en la página privada. Es más fácil, rápido y seguro.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="faq-item">
+                                        <div class="faq-question" onclick="toggleFaq(this)">
+                                            <h4>👵 ¿Y si tengo dificultades para acceder?</h4>
+                                            <span class="faq-toggle">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="faq-answer-content">
+                                                <p>No te preocupes. En el correo recibirás instrucciones paso a paso,
+                                                    con explicaciones claras y sencillas. Y si aún así necesitas ayuda,
+                                                    solo envíanos un correo y te guiaremos hasta que logres acceder sin
+                                                    problema.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -590,33 +740,31 @@
     </div>
 
     <style>
-
         .esconder {
             display: none;
         }
-
     </style>
 
     <script>
         // Script do player será carregado dinamicamente quando necessário
         var delaySeconds = 1049;
         var player = null;
-        
+
         function initializePlayer() {
             if (!player) {
                 const videoContainer = document.getElementById('videoContainer');
                 videoContainer.innerHTML = '<vturb-smartplayer id="vid-68bcdb7af27eb4c9e8d2c0b8" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>';
-                
+
                 var s = document.createElement("script");
                 s.src = "https://scripts.converteai.net/28d41dbd-cd23-4eac-a930-66e1aca584eb/players/68bcdb7af27eb4c9e8d2c0b8/v4/player.js";
                 s.async = true;
                 document.head.appendChild(s);
-                
+
                 // Aguardar o player carregar
                 setTimeout(() => {
                     player = document.querySelector("vturb-smartplayer");
                     if (player) {
-                        player.addEventListener("player:ready", function() {
+                        player.addEventListener("player:ready", function () {
                             player.displayHiddenElements(delaySeconds, [".esconder"], {
                                 persist: true
                             });
@@ -625,19 +773,19 @@
                 }, 1000);
             }
         }
-        
+
         // Função para toggle do FAQ accordion
         function toggleFaq(element) {
             const faqItem = element.parentElement;
             const isActive = faqItem.classList.contains('active');
-            
+
             // Fechar todos os outros FAQs
             document.querySelectorAll('.faq-item.active').forEach(item => {
                 if (item !== faqItem) {
                     item.classList.remove('active');
                 }
             });
-            
+
             // Toggle do FAQ atual
             if (isActive) {
                 faqItem.classList.remove('active');
@@ -651,4 +799,5 @@
     <script defer src="assets/js/config.js"></script>
     <script defer src="assets/js/script.js"></script>
 </body>
+
 </html>

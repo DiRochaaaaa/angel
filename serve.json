@@ -1,0 +1,24 @@
+{
+  "public": ".",
+  "rewrites": [
+    {
+      "source": "/up",
+      "destination": "/up/index.html"
+    },
+    {
+      "source": "/up/",
+      "destination": "/up/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "**/*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
+}

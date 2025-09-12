@@ -6,12 +6,10 @@ let userData = {
     month: '',
     day: '',
     year: '',
-    email: '',
     angel: null
 };
 
-// Configuração da URL de checkout - ALTERE AQUI SUA URL REAL
-const CHECKOUT_URL = 'https://example.com/checkout';
+
 
 // Initialize the page with performance optimizations
 document.addEventListener('DOMContentLoaded', function() {
@@ -71,14 +69,7 @@ function setupAutoSave() {
         });
     }
     
-    // Auto-save para email
-    const emailField = document.getElementById('email');
-    if (emailField) {
-        emailField.addEventListener('input', function() {
-            userData.email = this.value;
-            saveProgress();
-        });
-    }
+
 }
 
 // Populate day and year selects
@@ -87,20 +78,24 @@ function populateDateSelects() {
     const yearSelect = document.getElementById('year');
     
     // Populate days (1-31)
-    for (let i = 1; i <= 31; i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        daySelect.appendChild(option);
+    if (daySelect) {
+        for (let i = 1; i <= 31; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            daySelect.appendChild(option);
+        }
     }
     
     // Populate years (1940-2023)
-    const currentYear = new Date().getFullYear();
-    for (let i = currentYear; i >= 1940; i--) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        yearSelect.appendChild(option);
+    if (yearSelect) {
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1940; i--) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            yearSelect.appendChild(option);
+        }
     }
 }
 
@@ -126,8 +121,10 @@ function updateProgressBar() {
     const steps = document.querySelectorAll('.step');
     
     // Update progress bar width
-    const progressWidth = (currentStep / 4) * 100;
-    progressFill.style.width = progressWidth + '%';
+    const progressWidth = (currentStep / 3) * 100;
+    if (progressFill) {
+        progressFill.style.width = progressWidth + '%';
+    }
     
     // Update step indicators
     steps.forEach((step, index) => {
@@ -175,14 +172,7 @@ function validateCurrentStep() {
             userData.year = year;
             return true;
             
-        case 4:
-            const email = document.getElementById('email').value.trim();
-            if (!email || !isValidEmail(email)) {
-                alert('Por favor, ingresa un email válido.');
-                return false;
-            }
-            userData.email = email;
-            return true;
+
             
         default:
             return true;
@@ -201,7 +191,7 @@ function nextStep() {
         return;
     }
     
-    if (currentStep < 4) {
+    if (currentStep < 3) {
         // Hide current step
         document.getElementById(`step${currentStep}`).classList.remove('active');
         
@@ -229,13 +219,23 @@ function generateReading() {
     }
     
     // Determinar o anjo baseado no mês de nascimento
-    userData.angel = getAngelByMonth(userData.month);
+    if (typeof getAngelByMonth === 'function') {
+        userData.angel = getAngelByMonth(userData.month);
+    } else {
+        // Fallback se a função não existir
+        userData.angel = {
+            name: 'Gabriel',
+            meaning: 'Mensajero de Dios',
+            description: 'Gabriel es el mensajero divino que trae claridad y propósito a tu vida.',
+            image: 'assets/images/raphael.jpg'
+        };
+    }
     
     // Save progress before proceeding
     saveProgress();
     
-    // Hide step 4
-    document.getElementById('step4').classList.remove('active');
+    // Hide step 3
+    document.getElementById('step3').classList.remove('active');
     
     // Show loading screen
     document.getElementById('loading').classList.add('active');
@@ -318,8 +318,7 @@ function showOffer() {
     document.getElementById('results').classList.remove('active');
     document.getElementById('offer').classList.add('active');
     
-    // Configurar botão do carrinho com parâmetros
-    setupCartButton();
+
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
@@ -345,47 +344,7 @@ function showOffer() {
     }, 3000);
 }
 
-// Setup cart button with parameters
-function setupCartButton() {
-    const addToCartBtn = document.getElementById('addToCartBtn');
-    if (addToCartBtn && !addToCartBtn.hasAttribute('data-configured')) {
-        addToCartBtn.setAttribute('data-configured', 'true');
-        addToCartBtn.addEventListener('click', function() {
-            // Se existe a função global, usa ela
-            if (window.redirectWithParams) {
-                window.redirectWithParams(CHECKOUT_URL);
-                return;
-            }
-            
-            // Fallback: construir URL manualmente
-            const url = new URL(CHECKOUT_URL);
-            
-            // Adicionar dados do usuário
-            if (userData && userData.firstName) {
-                url.searchParams.set('name', userData.firstName);
-            }
-            if (userData && userData.email) {
-                url.searchParams.set('email', userData.email);
-            }
-            if (userData && userData.gender) {
-                url.searchParams.set('gender', userData.gender);
-            }
-            if (userData && userData.angel && userData.angel.name) {
-                url.searchParams.set('angel', userData.angel.name);
-            }
-            
-            // Adicionar parâmetros da URL atual
-            const currentParams = new URLSearchParams(window.location.search);
-            currentParams.forEach((value, key) => {
-                if (!url.searchParams.has(key)) {
-                    url.searchParams.set(key, value);
-                }
-            });
-            
-            window.location.href = url.toString();
-        });
-    }
-}
+
 
 // Add event listeners for gender selection
 document.addEventListener('DOMContentLoaded', function() {
@@ -531,10 +490,7 @@ function loadProgress() {
                 if (yearField) yearField.value = userData.year;
             }
             
-            if (userData.email) {
-                const emailField = document.getElementById('email');
-                if (emailField) emailField.value = userData.email;
-            }
+
             
             // Atualizar barra de progresso
             updateProgressBar();
