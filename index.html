@@ -190,27 +190,13 @@
         }
     </style>
 
-    <!-- Preload crítico com fallback -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'"
-        onerror="this.onerror=null;document.body.style.fontFamily='Arial,sans-serif'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    </noscript>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
-    <!-- CSS não-crítico carregado async com fallback -->
-    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"
-        onerror="console.warn('CSS externo falhou ao carregar, usando estilos inline')">
-    <noscript>
-        <link rel="stylesheet" href="assets/css/styles.css">
-    </noscript>
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- Preload de recursos críticos -->
-    <link rel="preload" href="assets/images/Angel-Oasis-logo-300x79.webp" as="image">
-    <link rel="preload" href="assets/images/background-image.webp" as="image">
-    <link rel="preload" href="assets/js/script.js" as="script">
-    <link rel="preload" href="assets/js/config.js" as="script">
+
 
 
 
@@ -236,28 +222,44 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=891530102691135&ev=PageView&noscript=1" /></noscript>
 
-    <!-- Propagação de Parâmetros -->
+    <!-- Propagação de Parâmetros - Adiciona sem substituir -->
     <script>
-        window.onload = function () {
+        window.onload = function() {
             const currentParams = new URLSearchParams(window.location.search);
+            if (![...currentParams].length) return; // nada pra propagar
 
             // Função que mescla sem duplicar
             function mergeParams(href) {
-                const url = new URL(href, window.location.origin);
-                currentParams.forEach((value, key) => {
-                    if (!url.searchParams.has(key)) {
-                        url.searchParams.set(key, value);
-                    }
-                });
-                return url.toString();
+                try {
+                    const url = new URL(href, window.location.origin);
+                    currentParams.forEach((value, key) => {
+                        if (!url.searchParams.has(key)) {
+                            url.searchParams.set(key, value);
+                        }
+                    });
+                    return url.toString();
+                } catch (error) {
+                    console.warn('Erro ao processar URL:', href, error);
+                    return href; // retorna URL original se houver erro
+                }
             }
 
-            // Links
-            if ([...currentParams].length) {
+            // Função para processar links
+            function processLinks() {
                 document.querySelectorAll('a[href]').forEach(link => {
                     const href = link.href;
-                    if (href.startsWith('mailto:') || href.startsWith('#')) return;
-                    link.href = mergeParams(href);
+                    // Pular links especiais
+                    if (href.startsWith('mailto:') || 
+                        href.startsWith('tel:') || 
+                        href.startsWith('#') || 
+                        href.startsWith('javascript:')) {
+                        return;
+                    }
+                    
+                    // Só processar se for um link externo (para checkout)
+                    if (href.includes('hotmart.com') || href.includes('pay.')) {
+                        link.href = mergeParams(href);
+                    }
                 });
 
                 // Formulários
@@ -268,48 +270,36 @@
                 });
             }
 
-            // Função global para redirecionar com parâmetros
-            window.redirectWithParams = function (baseUrl) {
-                const url = new URL(baseUrl);
+            // Processar links imediatamente
+            processLinks();
 
-                // Adicionar dados do usuário coletados para Hotmart
-                if (userData && userData.firstName) {
-                    url.searchParams.set('name', userData.firstName);
-                }
-                if (userData && userData.gender) {
-                    url.searchParams.set('gender', userData.gender);
-                }
-                if (userData && userData.angel && userData.angel.name) {
-                    url.searchParams.set('angel', userData.angel.name);
-                }
-
-                // Adicionar parâmetros originais da URL
-                currentParams.forEach((value, key) => {
-                    if (!url.searchParams.has(key)) {
-                        url.searchParams.set(key, value);
+            // Observer para processar novos links que aparecem dinamicamente (VTurb)
+            const observer = new MutationObserver(function(mutations) {
+                let shouldProcess = false;
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList' || mutation.type === 'attributes') {
+                        shouldProcess = true;
                     }
                 });
-
-                window.location.href = url.toString();
-            };
-
-            // Configurar botão do carrinho quando disponível
-            setTimeout(() => {
-                const addToCartBtn = document.getElementById('addToCartBtn');
-                if (addToCartBtn) {
-                    // O botão agora é um link direto, mas ainda podemos adicionar parâmetros se necessário
-                    addToCartBtn.addEventListener('click', function (e) {
-                        // Permitir que o link funcione normalmente, mas adicionar tracking se necessário
-                        if (typeof fbq !== 'undefined') {
-                            fbq('track', 'Purchase', {
-                                value: 7.00,
-                                currency: 'USD'
-                            });
-                        }
-                        // O link já redirecionará automaticamente
-                    });
+                
+                if (shouldProcess) {
+                    // Debounce para evitar muitas execuções
+                    clearTimeout(window.paramProcessTimeout);
+                    window.paramProcessTimeout = setTimeout(processLinks, 100);
                 }
-            }, 1000);
+            });
+
+            // Observar mudanças no DOM
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['href', 'action']
+            });
+
+            // Processar novamente após VTurb carregar (backup)
+            setTimeout(processLinks, 2000);
+            setTimeout(processLinks, 5000);
         };
     </script>
 
@@ -795,9 +785,9 @@
         }
     </script>
 
-    <!-- Scripts carregados com defer para não bloquear -->
-    <script defer src="assets/js/config.js"></script>
-    <script defer src="assets/js/script.js"></script>
+    <!-- Scripts -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
