@@ -326,6 +326,11 @@ function showOffer() {
     // Marcar no localStorage que o usuário chegou na VSL
     localStorage.setItem('angelOasisVSLReached', 'true');
     
+    // Update price display for A/B testing
+    if (typeof updatePriceOnVSL === 'function') {
+        updatePriceOnVSL();
+    }
+    
     // Evento do pixel para visualização da VSL
     if (typeof fbq !== 'undefined') {
         fbq('track', 'ViewContent', {
@@ -488,6 +493,11 @@ function loadProgress() {
                 // Atualizar informações do usuário na VSL
                 updateUserNames();
                 updateAngelInfo();
+                
+                // Update price display for A/B testing
+                if (typeof updatePriceOnVSL === 'function') {
+                    setTimeout(updatePriceOnVSL, 500);
+                }
                 
                 // Configurar botão do carrinho
                 // Removido - deixar o VTurb gerenciar os links automaticamente

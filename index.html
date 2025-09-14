@@ -785,6 +785,53 @@
         }
     </script>
 
+    <!-- A/B Testing Script for Price Variants -->
+    <script>
+        // Simple A/B Testing - Random price assignment for VSL
+        const PRICE_VARIANTS = [
+            {
+                price: '$14',
+                checkoutUrl: 'https://pay.hotmart.com/P101801752S?off=d6tzczic&offDiscount=P14&utm_term=price_14'
+            },
+            {
+                price: '$17', 
+                checkoutUrl: 'https://pay.hotmart.com/P101801752S?off=d6tzczic&offDiscount=P17&utm_term=price_17'
+            },
+            {
+                price: '$24',
+                checkoutUrl: 'https://pay.hotmart.com/P101801752S?off=d6tzczic&utm_term=price_24'
+            }
+        ];
+
+        // Function called when VSL loads to set random price
+        function updatePriceOnVSL() {
+            // Select random variant
+            const randomIndex = Math.floor(Math.random() * PRICE_VARIANTS.length);
+            const selectedVariant = PRICE_VARIANTS[randomIndex];
+            
+            // Update price display
+            const priceElements = document.querySelectorAll('.new-price');
+            priceElements.forEach(element => {
+                element.textContent = `SOLO HOY ${selectedVariant.price}`;
+            });
+            
+            // Update checkout button
+            const checkoutBtn = document.getElementById('addToCartBtn');
+            if (checkoutBtn) {
+                checkoutBtn.href = selectedVariant.checkoutUrl;
+            }
+            
+            // Update social proof button
+            const socialProofBtn = document.querySelector('.social-proof-cta-btn');
+            if (socialProofBtn) {
+                socialProofBtn.onclick = function() {
+                    window.open(selectedVariant.checkoutUrl, '_blank');
+                };
+            }
+        }
+    </script>
+    </script>
+
     <!-- Scripts -->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/script.js"></script>
